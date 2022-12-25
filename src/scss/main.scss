@@ -1,6 +1,7 @@
-.card {
-  background-color: #ddd;
-  button {
-    color: red;
-  }
+@import 'button';
+$primary: blue;
+$secondary: green;
+
+h1 {
+  color: $primary;
 }
