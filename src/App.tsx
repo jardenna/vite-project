@@ -1,18 +1,70 @@
+import Button from './components/Button';
+import Figure from './components/Figure';
+import Input from './components/formElements/Input';
+import Images from './components/formElements/pages/Images';
+import useKeyboard from './hooks/useKeyboard';
+
 function App() {
   const onClick = () => {
     console.log(145);
   };
+
+  const onKeyDown = useKeyboard(onClick, 'Enter');
+
   return (
-    <section>
-      <h1>hello</h1>
-      <img src="" alt="img" />
-      <button type="button" onClick={onClick}>
-        <div onClick={onClick} role="button" tabIndex={0}>
-          klik
+    <article>
+      <Images />
+
+      <h1>heading1</h1>
+      <div>
+        <h1>Heading 1</h1>
+        <h2>heading 2</h2>
+        <h3>heading 3</h3>
+        Aria
+        <div role="heading" aria-level={2}>
+          heading 2
         </div>
-        Klik
-      </button>
-    </section>
+        <h2 aria-level={2}>heading 3</h2>
+      </div>
+      <section>
+        <h2>section 1</h2>
+
+        <Figure
+          figcaption="Hedy Lamarr – WiFi, GPS & Bluetooth"
+          imgSrc="./images/hedy_lamarr.jpg"
+          altText="Hedy Lamarr – WiFi, GPS & Bluetooth"
+        >
+          <div>
+            Hedy Lamarr was a famous actor, film producer and inventor. She is
+            today mostly known for co-inventing an early version of
+            frequency-hopping spread spectrum communication in 1941, then
+            invented to protect Allied torpedo’s to be detected by the Nazis.
+            Today this technology is used in secure Wi-Fi, GPS and Bluetooth,
+            technology that is used by millions of people all over the world.
+          </div>
+        </Figure>
+      </section>
+      <span role="img" aria-label="mouse">
+        &#x1f5b0;
+      </span>
+      <section>
+        <h2>section 2</h2>
+        <Button text="Klik her" type="submit" />
+        <div
+          onClick={onClick}
+          role="button"
+          tabIndex={0}
+          onKeyDown={onKeyDown}
+          aria-label="please click here"
+        >
+          Click
+        </div>
+      </section>
+      <section>
+        <h2>section 3</h2>
+        this is section 3
+      </section>
+    </article>
   );
 }
 

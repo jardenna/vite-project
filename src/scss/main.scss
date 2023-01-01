@@ -1,7 +1,88 @@
-@import 'button';
-$primary: blue;
-$secondary: green;
+* {
+  box-sizing: border-box;
+}
 
-h1 {
-  color: $primary;
+:root {
+  --focus: 1px dotted #000000;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+  font-family: $font-primary;
+  font-weight: 500;
+  line-height: 20px;
+  color: $color-primary;
+}
+
+h1,
+h2 {
+  font-family: $font-secondary;
+}
+
+h2 {
+  font-size: 16px;
+}
+a {
+  color: $color-primary-btn;
+  text-decoration: none;
+
+  &:focus {
+    outline: var(--focus);
+    border: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.flex {
+  @include flexbox();
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+svg {
+  width: 20px;
+}
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.doc {
+  a {
+    display: flex;
+    align-items: center;
+  }
 }

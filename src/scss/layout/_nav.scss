@@ -1,0 +1,62 @@
+$burgerColor: $color-gray;
+$burgerColorActive: $color-primary;
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.open-nav {
+  @include transition();
+
+  &.main-nav {
+    @include mQ($small) {
+      right: 0;
+      background-color: rgba(245, 246, 246, 0.9);
+    }
+  }
+}
+.nav-container {
+  margin-top: 70px;
+}
+.main-nav {
+  width: 100%;
+  text-align: right;
+  margin: 0;
+
+  @include mQ($small) {
+    text-align: left;
+    @include transition();
+    position: fixed;
+    right: -200px;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 20;
+  }
+
+  .nav-item {
+    font-size: 14px;
+    margin-right: 10px;
+    display: inline-block;
+    a {
+      color: $color-primary-link;
+      &.active {
+        color: $color-primary-link-hover;
+        text-decoration: underline;
+      }
+    }
+
+    @include mQ($small) {
+      margin: 20px;
+      display: block;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}

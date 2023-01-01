@@ -22,6 +22,16 @@ module.exports = {
   rules: {
     'no-console': ['warn', { allow: ['info', 'error'] }],
     'react/react-in-jsx-scope': 0,
+    'react/require-default-props': 'off',
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        labelAttributes: ['label'],
+        controlComponents: ['input'],
+        depth: 1,
+      },
+    ],
+
     'react/function-component-definition': [
       2,
       {
