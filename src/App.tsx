@@ -1,8 +1,12 @@
+import { useRef } from 'react';
 import Button from './components/Button';
 import Figure from './components/Figure';
-import Input from './components/formElements/Input';
+
 import Images from './components/formElements/pages/Images';
 import useKeyboard from './hooks/useKeyboard';
+import useRefDimensions from './hooks/useResize';
+
+import useWindowDimensions from './hooks/useWindowWidth';
 
 function App() {
   const onClick = () => {
@@ -10,10 +14,21 @@ function App() {
   };
 
   const onKeyDown = useKeyboard(onClick, 'Enter');
+  const { width } = useWindowDimensions();
+  // https://stackoverflow.com/questions/73247936/how-to-dynamically-track-width-height-of-div-in-react-js
+
+  const componentRef = useRef() as any;
+  const dimensions = useRefDimensions(componentRef);
+  console.log(dimensions);
+
+  // https://www.kindacode.com/article/how-to-get-the-width-height-of-the-viewport-in-react/#Preview
+
+  // https://bobbyhadz.com/blog/react-get-width-of-element
 
   return (
     <article>
       <Images />
+      <div>{width}</div>
 
       <h1>heading1</h1>
       <div>
@@ -26,7 +41,7 @@ function App() {
         </div>
         <h2 aria-level={2}>heading 3</h2>
       </div>
-      <section>
+      <section ref={componentRef}>
         <h2>section 1</h2>
 
         <Figure
