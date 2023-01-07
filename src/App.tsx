@@ -1,12 +1,11 @@
-import { useRef } from 'react';
+import { useLayoutEffect, useRef, useState, MutableRefObject, FC } from 'react';
 import Button from './components/Button';
 import Figure from './components/Figure';
 
 import Images from './components/formElements/pages/Images';
-import useKeyboard from './hooks/useKeyboard';
-import useRefDimensions from './hooks/useResize';
+import Parent from './components/Parent';
 
-import useWindowDimensions from './hooks/useWindowWidth';
+import useKeyboard from './hooks/useKeyboard';
 
 function App() {
   const onClick = () => {
@@ -14,21 +13,193 @@ function App() {
   };
 
   const onKeyDown = useKeyboard(onClick, 'Enter');
-  const { width } = useWindowDimensions();
-  // https://stackoverflow.com/questions/73247936/how-to-dynamically-track-width-height-of-div-in-react-js
 
-  const componentRef = useRef() as any;
-  const dimensions = useRefDimensions(componentRef);
-  console.log(dimensions);
-
-  // https://www.kindacode.com/article/how-to-get-the-width-height-of-the-viewport-in-react/#Preview
-
-  // https://bobbyhadz.com/blog/react-get-width-of-element
+  const products = [
+    {
+      title: 'Flight',
+      productId: '1',
+      subTitle: 'Sub 1',
+      attributes: [
+        {
+          variant: 'red',
+          price: '134.00',
+        },
+        {
+          variant: 'red',
+          price: '134.00',
+        },
+        {
+          variant: 'red',
+          price: '134.00',
+        },
+        {
+          variant: 'red',
+          price: '134.00',
+        },
+      ],
+    },
+    {
+      title: 'Data',
+      productId: '2',
+      subTitle: 'Sub 2',
+      attributes: [
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+      ],
+    },
+    {
+      title: 'Something else',
+      productId: '3',
+      subTitle: 'Sub 3',
+      attributes: [
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00 3400.00 3400.00 3400.00 3400.00 3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+        {
+          variant: 'pink',
+          price: '342.00',
+        },
+        {
+          variant: 'green',
+          price: '3400.00',
+        },
+      ],
+    },
+  ];
+  const ref = useRef(null) as MutableRefObject<any>;
 
   return (
     <article>
-      <Images />
-      <div>{width}</div>
+      <div className="prod-container">
+        {products.map((a) => (
+          <Parent key={a.productId}>
+            <section ref={ref}>
+              <h2>{a.title}</h2>
+              <div className="prod">
+                <ul className="flexbox">
+                  {a.attributes.map((x, i) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <li className="box" key={i}>
+                      {x.price}
+                    </li>
+                  ))}
+                </ul>
+                <p>{a.subTitle}</p>
+              </div>
+            </section>
+          </Parent>
+        ))}
+      </div>
+
+      {/* <Images />
+     
 
       <h1>heading1</h1>
       <div>
@@ -78,7 +249,7 @@ function App() {
       <section>
         <h2>section 3</h2>
         this is section 3
-      </section>
+      </section> */}
     </article>
   );
 }
