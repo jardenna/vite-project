@@ -6,23 +6,18 @@ interface ParentProps {
   children: ReactNode;
 }
 const Parent: FC<ParentProps> = ({ children }) => {
-  const parentRef = useRef<HTMLDivElement | null>(null);
+  const testRef = useRef<HTMLDivElement | null>(null);
   const [winwidth] = useWindowSize();
   useLayoutEffect(() => {
-    parentRef.current?.childNodes.forEach((node: any) =>
-      console.log({
-        width: node?.clientWidth,
-        windowWidth: winwidth,
-      })
+    testRef.current?.childNodes.forEach((node: any) =>
+      console.log({ width: node?.clientWidth })
     );
-  }, [winwidth]);
+  }, []);
 
   return (
     <>
       <span>Window size: {winwidth}</span>
-      <div className="parent1" ref={parentRef}>
-        {children}
-      </div>
+      <div ref={testRef}>{children}</div>
     </>
   );
 };

@@ -23,13 +23,10 @@ ul {
 .prod-container {
   display: flex;
 }
-.test {
-  width: 200px;
+.parent1 {
+  width: fit-content;
 }
 
-.test1 {
-  width: 500px;
-}
 .prod {
   display: flex;
   flex-direction: column;

@@ -6,19 +6,35 @@ import Images from './components/formElements/pages/Images';
 import Parent from './components/Parent';
 
 import useKeyboard from './hooks/useKeyboard';
+import useWindowSize from './hooks/useWindowWidth';
 
 function App() {
-  const onClick = () => {
-    console.log(145);
-  };
+  // const onClick = () => {
+  //   console.log(145);
+  // };
 
-  const onKeyDown = useKeyboard(onClick, 'Enter');
+  // const onKeyDown = useKeyboard(onClick, 'Enter');
+
+  const [winwidth] = useWindowSize();
+
+  const parentRef = useRef(null) as MutableRefObject<any>;
+  const [collapse, setCollapse] = useState(false);
+
+  useLayoutEffect(() => {
+    const parentWidth = parentRef.current?.getBoundingClientRect().width;
+    if (parentWidth > winwidth) {
+      setCollapse(true);
+    }
+    console.log({ parentWidth });
+  }, [winwidth]);
 
   const products = [
     {
       title: 'Flight',
       productId: '1',
       subTitle: 'Sub 1',
+      collapse: false,
+      width: 136,
       attributes: [
         {
           variant: 'red',
@@ -42,6 +58,8 @@ function App() {
       title: 'Data',
       productId: '2',
       subTitle: 'Sub 2',
+      collapse: false,
+      width: 612,
       attributes: [
         {
           variant: 'green',
@@ -109,6 +127,8 @@ function App() {
       title: 'Something else',
       productId: '3',
       subTitle: 'Sub 3',
+      collapse: false,
+      width: 627,
       attributes: [
         {
           variant: 'green',
@@ -128,7 +148,7 @@ function App() {
         },
         {
           variant: 'green',
-          price: '3400.00 3400.00 3400.00 3400.00 3400.00 3400.00',
+          price: '3400.00cc',
         },
         {
           variant: 'pink',
@@ -173,14 +193,27 @@ function App() {
       ],
     },
   ];
-  const ref = useRef(null) as MutableRefObject<any>;
 
+  const val = (attr: any) => {
+    let x = 0;
+
+    const c = attr.length + 1;
+
+    if (attr.length % 2 === 0) {
+      x = attr.length * 34;
+    } else {
+      x = c * 40;
+    }
+
+    return x;
+  };
   return (
-    <article>
+    <article ref={parentRef} className="parent1">
+      <span>Window size: {winwidth}</span>
       <div className="prod-container">
         {products.map((a) => (
           <Parent key={a.productId}>
-            <section ref={ref}>
+            <section data-width={val(a.attributes)}>
               <h2>{a.title}</h2>
               <div className="prod">
                 <ul className="flexbox">
