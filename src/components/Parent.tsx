@@ -10,15 +10,11 @@ const Parent: FC<ParentProps> = ({ children }) => {
   const [winwidth] = useWindowSize();
   useLayoutEffect(() => {
     testRef.current?.childNodes.forEach((node: any) =>
-      console.log({ width: node?.clientWidth })
+      // console.log({ width: node?.clientWidth })
+      console.log(1)
     );
   }, []);
 
-  return (
-    <>
-      <span>Window size: {winwidth}</span>
-      <div ref={testRef}>{children}</div>
-    </>
-  );
+  return <div ref={testRef}>{children}</div>;
 };
 export default Parent;

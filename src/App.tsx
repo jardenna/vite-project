@@ -16,17 +16,22 @@ function App() {
   // const onKeyDown = useKeyboard(onClick, 'Enter');
 
   const [winwidth] = useWindowSize();
+  console.log(winwidth);
+
+  const [parentsWidth, setParentWidth] = useState(0);
 
   const parentRef = useRef(null) as MutableRefObject<any>;
   const [collapse, setCollapse] = useState(false);
 
+  // useLayoutEffect(() => {
+  //   console.log({ winwidth });
+
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [winwidth]);
+
   useLayoutEffect(() => {
-    const parentWidth = parentRef.current?.getBoundingClientRect().width;
-    if (parentWidth > winwidth) {
-      setCollapse(true);
-    }
-    console.log({ parentWidth });
-  }, [winwidth]);
+    setParentWidth(parentRef.current?.getBoundingClientRect().width);
+  }, []);
 
   const products = [
     {
@@ -127,7 +132,7 @@ function App() {
       title: 'Something else',
       productId: '3',
       subTitle: 'Sub 3',
-      collapse: false,
+      collapse: parentsWidth > winwidth,
       width: 627,
       attributes: [
         {
@@ -207,16 +212,23 @@ function App() {
 
     return x;
   };
+  const [hidden, setHidden] = useState(true);
+  const handleShow = () => {
+    setHidden(!hidden);
+  };
   return (
     <article ref={parentRef} className="parent1">
-      <span>Window size: {winwidth}</span>
       <div className="prod-container">
         {products.map((a) => (
           <Parent key={a.productId}>
             <section data-width={val(a.attributes)}>
               <h2>{a.title}</h2>
               <div className="prod">
-                <ul className="flexbox">
+                <ul
+                  className={`flexbox ${a.collapse ? 'block' : ''} ${
+                    hidden ? 'hidden' : ''
+                  }`}
+                >
                   {a.attributes.map((x, i) => (
                     // eslint-disable-next-line react/no-array-index-key
                     <li className="box" key={i}>
@@ -225,6 +237,11 @@ function App() {
                   ))}
                 </ul>
                 <p>{a.subTitle}</p>
+                {a.collapse && (
+                  <button type="button" onClick={handleShow}>
+                    Arrow
+                  </button>
+                )}
               </div>
             </section>
           </Parent>

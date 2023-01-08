@@ -44,6 +44,21 @@ ul {
   grid-template-rows: 100px 100px;
   // grid-template-columns: 100px 100px;
   padding: 10px;
+
+  &.block {
+    display: block;
+    height: auto;
+    overflow: none;
+    visibility: visible;
+    top: 120px;
+    position: absolute;
+
+    &.hidden {
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+  }
 }
 
 // .box {
