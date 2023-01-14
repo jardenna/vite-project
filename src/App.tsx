@@ -1,4 +1,12 @@
-import { useLayoutEffect, useRef, useState, MutableRefObject, FC } from 'react';
+import {
+  useLayoutEffect,
+  useRef,
+  useState,
+  MutableRefObject,
+  FC,
+  useEffect,
+  useCallback,
+} from 'react';
 import Button from './components/Button';
 import Figure from './components/Figure';
 
@@ -16,30 +24,24 @@ function App() {
   // const onKeyDown = useKeyboard(onClick, 'Enter');
 
   const [winwidth] = useWindowSize();
-  console.log(winwidth);
 
   const [parentsWidth, setParentWidth] = useState(0);
 
   const parentRef = useRef(null) as MutableRefObject<any>;
-  const [collapse, setCollapse] = useState(false);
-
-  // useLayoutEffect(() => {
-  //   console.log({ winwidth });
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [winwidth]);
 
   useLayoutEffect(() => {
     setParentWidth(parentRef.current?.getBoundingClientRect().width);
   }, []);
+
+  const test = (w: number) => parentsWidth - w > winwidth;
 
   const products = [
     {
       title: 'Flight',
       productId: '1',
       subTitle: 'Sub 1',
-      collapse: false,
-      width: 136,
+      collapse: test(748),
+
       attributes: [
         {
           variant: 'red',
@@ -63,8 +65,8 @@ function App() {
       title: 'Data',
       productId: '2',
       subTitle: 'Sub 2',
-      collapse: false,
-      width: 612,
+      collapse: test(600),
+
       attributes: [
         {
           variant: 'green',
@@ -132,8 +134,8 @@ function App() {
       title: 'Something else',
       productId: '3',
       subTitle: 'Sub 3',
-      collapse: parentsWidth > winwidth,
-      width: 627,
+      collapse: test(0),
+
       attributes: [
         {
           variant: 'green',
@@ -199,29 +201,17 @@ function App() {
     },
   ];
 
-  const val = (attr: any) => {
-    let x = 0;
-
-    const c = attr.length + 1;
-
-    if (attr.length % 2 === 0) {
-      x = attr.length * 34;
-    } else {
-      x = c * 40;
-    }
-
-    return x;
-  };
   const [hidden, setHidden] = useState(true);
   const handleShow = () => {
     setHidden(!hidden);
   };
+
   return (
     <article ref={parentRef} className="parent1">
       <div className="prod-container">
         {products.map((a) => (
           <Parent key={a.productId}>
-            <section data-width={val(a.attributes)}>
+            <section>
               <h2>{a.title}</h2>
               <div className="prod">
                 <ul
