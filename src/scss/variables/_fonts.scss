@@ -1,22 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 @font-face {
-  font-family: 'openSans';
-  src: url('/public/fonts/OpenSans-Regular.ttf');
+  font-family: 'manrope';
+  src: url('/public/fonts/Manrope-Regular.ttf');
 
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'walkway';
-  src: url('/public/fonts/walkway_expand_bold-webfont.eot');
+  font-family: 'manrope-semiBold';
+  src: url('/public/fonts/Manrope-SemiBold.ttf');
 
-  font-weight: normal;
+  font-weight: bold;
   font-style: normal;
 }
 
-$font-primary: open sans, sans-serif;
-$font-secondary: walkway, sans-serif;
-
-$font-logo: 'Poiret One', cursive, sans-serif;
+$font-primary: manrope, sans-serif;
+$font-secondary: manrope-semiBold, sans-serif;

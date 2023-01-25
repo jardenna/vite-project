@@ -1,16 +1,14 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
 interface FigureProps {
   figcaption: string;
-  children: ReactNode;
   imgSrc: string;
   altText?: string;
 }
-const Figure: FC<FigureProps> = ({ figcaption, children, imgSrc, altText }) => (
-  <figure role="group" aria-labelledby="fig-t3-capt">
-    <figcaption>{figcaption}</figcaption>
+const Figure: FC<FigureProps> = ({ figcaption, imgSrc, altText }) => (
+  <figure>
     <img src={imgSrc} alt={altText || ''} />
-    {children}
+    <figcaption>{figcaption}</figcaption>
   </figure>
 );
 export default Figure;

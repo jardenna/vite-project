@@ -10,79 +10,26 @@ ul {
   list-style: none;
   padding: 0;
 }
-// .flexbox {
-//   display: flex;
-//   flex-direction: column;
-//   flex-wrap: wrap;
-//   height: 210px;
-//   gap: 10px;
 
-//   align-content: flex-start;
-// }
-
-.prod-container {
-  display: flex;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
-.parent1 {
-  width: fit-content;
-}
-
-.prod {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.box {
-  //  padding: 20px;
-  border: 1px solid black;
-}
-
-.flexbox {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 20px;
-  grid-template-rows: 100px 100px;
-  // grid-template-columns: 100px 100px;
-  padding: 10px;
-
-  &.block {
-    display: block;
-    height: auto;
-    overflow: none;
-    visibility: visible;
-    top: 120px;
-    position: absolute;
-
-    &.hidden {
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
-    }
-  }
-}
-
-// .box {
-//   padding: 20px;
-//   border: 1px solid black;
-// }
 
 body {
   margin: 0;
-  font-size: 15px;
+  font-size: 18px;
   font-family: $font-primary;
-  font-weight: 500;
-  line-height: 20px;
+
   color: $color-primary;
+  background-color: #fefeff;
 }
 
-// h1,
-// h2 {
-//   font-family: $font-secondary;
-// }
-
-h2 {
-  font-size: 16px;
+img {
+  width: 100%;
 }
+
 a {
   color: $color-primary-btn;
   text-decoration: none;
@@ -119,30 +66,12 @@ form {
   white-space: nowrap;
 }
 
-.flex {
-  @include flexbox();
-}
-
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
 svg {
   width: 20px;
 }
-.sr-only {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
 
-.doc {
-  a {
-    display: flex;
-    align-items: center;
-  }
+.container {
+  max-width: 1600px;
+  padding: 20px;
+  margin: 0 auto;
 }
