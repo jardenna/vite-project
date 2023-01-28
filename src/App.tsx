@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from './components/Button';
 import Figure from './components/Figure';
 
-import Images from './components/formElements/pages/Images';
+import Images from './components/Images';
 
 import useKeyboard from './hooks/useKeyboard';
 

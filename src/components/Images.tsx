@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Figure from '../../Figure';
+import Figure from './Figure';
 
 const Images: FC = () => (
   <article>
@@ -37,22 +37,41 @@ const Images: FC = () => (
       For long descriptions, use captions instead of alt text since they are
       available to all users and alt text is limited to 125 characters.
     </div>
+    <div>
+      images empty alt text so SR knows it is an image otherwice it will read
+      the img src / name
+      <p>
+        do not use images with text because of magnifiers or add it to the alt
+        text
+      </p>
+    </div>
     <section>
       <h2>Figure</h2>
-      <Figure
+      {/* <Figure
         figcaption="Hedy Lamarr, actor and co-inventor of Secret Communication System"
         imgSrc="./images/heda.jpg"
         altText="Hedy Lamarr - WiFi, GPS & Bluetooth"
-      />
-      <div className="card">
-        <div>
-          Hedy Lamarr was a famous actor, film producer and inventor. She is
-          today mostly known for co-inventing an early version of
-          frequency-hopping spread spectrum communication in 1941, then invented
-          to protect Allied torpedo’s to be detected by the Nazis. Today this
-          technology is used in secure Wi-Fi, GPS and Bluetooth.
-        </div>
-      </div>
+      /> */}
+
+      <figure>
+        <img
+          src="./images/heda.jpg"
+          alt="Hedy Lamarr - WiFi, GPS & Bluetooth"
+        />
+        <figcaption>
+          <a href="https://recab.com/hedy-lamarr/">text</a>
+          <h2>
+            Hedy Lamarr, actor and co-inventor of Secret Communication System
+          </h2>
+          <div>
+            Hedy Lamarr was a famous actor, film producer and inventor. She is
+            today mostly known for co-inventing an early version of
+            frequency-hopping spread spectrum communication in 1941, then
+            invented to protect Allied torpedo’s to be detected by the Nazis.
+            Today this technology is used in secure Wi-Fi, GPS and Bluetooth.
+          </div>
+        </figcaption>
+      </figure>
     </section>
   </article>
 );
