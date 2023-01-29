@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import Figcaption from './Figcaption';
 import Figure from './Figure';
+import Img from './Img';
 
 const Images: FC = () => (
   <article>
@@ -47,31 +49,42 @@ const Images: FC = () => (
     </div>
     <section>
       <h2>Figure</h2>
-      {/* <Figure
-        figcaption="Hedy Lamarr, actor and co-inventor of Secret Communication System"
-        imgSrc="./images/heda.jpg"
-        altText="Hedy Lamarr - WiFi, GPS & Bluetooth"
-      /> */}
 
-      <figure>
-        <img
-          src="./images/heda.jpg"
-          alt="Hedy Lamarr - WiFi, GPS & Bluetooth"
+      <Figure>
+        <Img
+          imgSrc="./images/hedy.jpg"
+          altText="Hedy Lamarr - WiFi, GPS & Bluetooth"
         />
-        <figcaption>
-          <a href="https://recab.com/hedy-lamarr/">text</a>
-          <h2>
+
+        <Figcaption>
+          <h3 className="figure-heading">
             Hedy Lamarr, actor and co-inventor of Secret Communication System
-          </h2>
+          </h3>
           <div>
             Hedy Lamarr was a famous actor, film producer and inventor. She is
             today mostly known for co-inventing an early version of
-            frequency-hopping spread spectrum communication in 1941, then
-            invented to protect Allied torpedo’s to be detected by the Nazis.
-            Today this technology is used in secure Wi-Fi, GPS and Bluetooth.
+            frequency-hopping spread spectrum communication in 1941. Today this
+            technology is used in secure Wi-Fi, GPS and Bluetooth.
+            <p>
+              <a href="https://recab.com/hedy-lamarr/">
+                Read more about Hedy Lamarr
+              </a>
+            </p>
           </div>
-        </figcaption>
-      </figure>
+        </Figcaption>
+      </Figure>
+      <Figure>
+        <Img
+          imgSrc="./images/counter-clockwise.jpg"
+          altText="Push the cap down and turn it counter-clockwise (from right to left)"
+        />
+
+        <Figcaption>
+          <h3 className="figure-heading">
+            Direction for unscrewing a bottle cap
+          </h3>
+        </Figcaption>
+      </Figure>
     </section>
   </article>
 );
