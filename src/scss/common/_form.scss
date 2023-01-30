@@ -33,27 +33,27 @@ form {
   background: #d3d3d33b;
 }
 
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 9px;
+// input,
+// select,
+// textarea {
+//   width: 100%;
+//   padding: 9px;
 
-  border: 1px solid $color-primary;
-  background-color: $color-white;
-  margin: 25px 0;
-  color: $color-primary;
-  outline: none;
-  font-family: $font-primary;
+//   border: 1px solid $color-primary;
+//   background-color: $color-white;
+//   margin: 25px 0;
+//   color: $color-primary;
+//   outline: none;
+//   font-family: $font-primary;
 
-  &:focus {
-    background-color: $color-gray-light;
-  }
-}
+//   &:focus {
+//     background-color: $color-gray-light;
+//   }
+// }
 
-input[type='radio'] {
-  margin-right: 10px;
-}
+// input[type='radio'] {
+//   margin-right: 10px;
+// }
 
 fieldset {
   border: 1px solid #ddd;
