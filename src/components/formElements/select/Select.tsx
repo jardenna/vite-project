@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import useAccessibleDropdown from '../../../hooks/useAccessibleDropdown';
 
 interface Option {
@@ -9,11 +9,7 @@ interface SelectProps {
   options: Option[];
   selectedOption: string;
 }
-const Select: FC<SelectProps> = ({
-  options,
-
-  selectedOption,
-}) => {
+const Select: FC<SelectProps> = ({ options, selectedOption }) => {
   const [value, setValue] = useState(selectedOption);
   const {
     isDropdownOpen,

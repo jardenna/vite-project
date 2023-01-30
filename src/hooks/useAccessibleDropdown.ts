@@ -8,7 +8,7 @@ interface Option {
 
 const useAccessibleDropdown = (options: Option[], value: string) => {
   const [isDropdownOpen, setIsDropdownOpenInternal] = useState(false);
-  const listRef = useRef<HTMLUListElement | null>(null);
+  const listRef = useRef<any>();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isSafari = () => {
@@ -28,7 +28,7 @@ const useAccessibleDropdown = (options: Option[], value: string) => {
       }
     } else if (listRef.current && isSafari()) {
       requestAnimationFrame(() => {
-        listRef?.current.previousSibling.focus();
+        listRef.current.previousSibling.focus();
       });
     }
     setIsDropdownOpenInternal(v);

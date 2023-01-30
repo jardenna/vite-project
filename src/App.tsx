@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CustomSelect from './components/formElements/select/CustomSelect';
 import Select from './components/formElements/select/Select';
 
 const options = [
@@ -47,7 +48,8 @@ function App() {
       </header>
       <main className="main-content">
         <div className="container">
-          <Select options={options} selectedOption="lloyd" />
+          <CustomSelect />
+          {/* <Select options={options} selectedOption="lloyd" /> */}
         </div>
       </main>
 
