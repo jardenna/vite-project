@@ -32,7 +32,6 @@ const options = [
   },
 ];
 function App() {
-  const [v, setV] = useState('lloyd');
   return (
     <article className="main-container">
       <header className="main-header">
@@ -48,12 +47,7 @@ function App() {
       </header>
       <main className="main-content">
         <div className="container">
-          <Select
-            options={options}
-            value={v}
-            onChange={setV}
-            labels="Pick your favourite Ninjago: "
-          />
+          <Select options={options} selectedOption="lloyd" />
         </div>
       </main>
 

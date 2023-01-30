@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useRef } from 'react';
 
 interface Option {
@@ -7,7 +8,7 @@ interface Option {
 
 const useAccessibleDropdown = (options: Option[], value: string) => {
   const [isDropdownOpen, setIsDropdownOpenInternal] = useState(false);
-  const listRef = useRef<any>();
+  const listRef = useRef<HTMLUListElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isSafari = () => {
@@ -22,7 +23,7 @@ const useAccessibleDropdown = (options: Option[], value: string) => {
       setActiveIndex(selected < 0 ? 0 : selected);
       if (listRef.current && isSafari()) {
         requestAnimationFrame(() => {
-          listRef.current.focus();
+          listRef.current?.focus();
         });
       }
     } else if (listRef.current && isSafari()) {
