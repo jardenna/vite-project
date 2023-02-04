@@ -1,16 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
-interface Option {
-  value: string;
-  label: string;
-}
-
-const useAccessibleDropdown = (options: Option[], value: string) => {
+const useAccessibleDropdown = ({ options, value, onChange }) => {
   const [isDropdownOpen, setIsDropdownOpenInternal] = useState(false);
   const listRef = useRef<any>();
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const [isFocus, setIsFocus] = useState(false);
   const isSafari = () => {
     const chromeInAgent = navigator.userAgent.indexOf('Chrome') > -1;
     const safariInAgent = navigator.userAgent.indexOf('Safari') > -1;
@@ -23,7 +17,7 @@ const useAccessibleDropdown = (options: Option[], value: string) => {
       setActiveIndex(selected < 0 ? 0 : selected);
       if (listRef.current && isSafari()) {
         requestAnimationFrame(() => {
-          listRef.current?.focus();
+          listRef.current.focus();
         });
       }
     } else if (listRef.current && isSafari()) {
@@ -33,16 +27,39 @@ const useAccessibleDropdown = (options: Option[], value: string) => {
     }
     setIsDropdownOpenInternal(v);
   };
+  const select = (value: any) => {
+    if (value) {
+      onChange && onChange(value);
+    }
+    setIsDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      return registerOpenDropdownHandlers({
+        activeIndex,
+        setActiveIndex,
+        optionsLength: options.length,
+        select,
+      });
+    }
+    return (
+      isFocus &&
+      registerClosedDropdownHandlers({
+        setIsDropdownOpen,
+      })
+    );
+  }, [isDropdownOpen, activeIndex, isFocus]);
 
   return {
     isDropdownOpen,
     setIsDropdownOpen,
     activeIndex,
     setActiveIndex,
+    select,
+    setIsFocus,
     listRef,
   };
 };
 
 export default useAccessibleDropdown;
-
-// https://codepen.io/kacper-lego/pen/mdxMNyv?editors=0010

@@ -1,62 +1,16 @@
 /* eslint-disable react/no-array-index-key */
-import { useState } from 'react';
+import { FC } from 'react';
+import useDropdown from './useDropdown';
 
-const CustomSelect = () => {
-  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(0);
-
-  const optionsList = [
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4',
-    'Option 5',
-  ];
-
-  const toggleOptions = () => {
-    setIsOptionsOpen(!isOptionsOpen);
-  };
-
-  const setSelectedThenCloseDropdown = (index: number) => {
-    setSelectedOption(index);
-    setIsOptionsOpen(false);
-  };
-
-  const handleKeyDown = (index: number) => (e: any) => {
-    switch (e.key) {
-      case ' ':
-      case 'SpaceBar':
-      case 'Enter':
-        e.preventDefault();
-        setSelectedThenCloseDropdown(index);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const handleListKeyDown = (e: any) => {
-    switch (e.key) {
-      case 'Escape':
-        e.preventDefault();
-        setIsOptionsOpen(false);
-        break;
-      case 'ArrowUp':
-        e.preventDefault();
-        setSelectedOption(
-          selectedOption - 1 >= 0 ? selectedOption - 1 : optionsList.length - 1
-        );
-        break;
-      case 'ArrowDown':
-        e.preventDefault();
-        setSelectedOption(
-          selectedOption === optionsList.length - 1 ? 0 : selectedOption + 1
-        );
-        break;
-      default:
-        break;
-    }
-  };
+const CustomSelect: FC<any> = ({ options }) => {
+  const {
+    toggleOptions,
+    handleKeyDown,
+    handleListKeyDown,
+    isOptionsOpen,
+    selectedOption,
+    setSelectedThenCloseDropdown,
+  } = useDropdown(options);
 
   return (
     <div className="wrapper">
@@ -69,19 +23,18 @@ const CustomSelect = () => {
           onClick={toggleOptions}
           onKeyDown={handleListKeyDown}
         >
-          {optionsList[selectedOption]}
+          {options[selectedOption].value}
         </button>
         <ul
           className={`options ${isOptionsOpen ? 'show' : ''}`}
           role="listbox"
-          aria-activedescendant={optionsList[selectedOption]}
           tabIndex={-1}
           onKeyDown={handleListKeyDown}
         >
-          {optionsList.map((option, index) => (
+          {options.map((option: any, index: number) => (
             <li
               key={index}
-              id={option}
+              id={option.value}
               role="option"
               aria-selected={selectedOption === index}
               tabIndex={0}
@@ -90,7 +43,7 @@ const CustomSelect = () => {
                 setSelectedThenCloseDropdown(index);
               }}
             >
-              {option}
+              {option.value}
             </li>
           ))}
         </ul>

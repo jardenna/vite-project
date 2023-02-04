@@ -47,7 +47,7 @@ function App() {
       </header>
       <main className="main-content">
         <div className="container">
-          <CustomSelect />
+          <CustomSelect options={options} />
         </div>
       </main>
 
