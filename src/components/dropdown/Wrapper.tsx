@@ -32,15 +32,8 @@ const options = [
   },
 ];
 const Wrapper: FC = () => {
-  const [value, setValue] = useState('lloyd');
+  const [val, setVal] = useState('lloyd');
 
-  return (
-    <Select
-      options={options}
-      value={value}
-      onChange={setValue}
-      title="Pick your favourite Ninjago: "
-    />
-  );
+  return <Select options={options} value={val} onChange={setVal} />;
 };
 export default Wrapper;

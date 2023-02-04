@@ -1,35 +1,4 @@
-import CustomSelect from './components/select/Select';
-
-const options = [
-  {
-    value: 'kai',
-    label: 'Kai',
-  },
-  {
-    value: 'nya',
-    label: 'Nya',
-  },
-  {
-    value: 'lloyd',
-    label: 'Lloyd',
-  },
-  {
-    value: 'zane',
-    label: 'Zane',
-  },
-  {
-    value: 'cole',
-    label: 'Cole',
-  },
-  {
-    value: 'jay',
-    label: 'Jay',
-  },
-  {
-    value: 'garmadon',
-    label: 'Garmadon',
-  },
-];
+import Wrapper from './components/dropdown/Wrapper';
 
 function App() {
   return (
@@ -47,7 +16,7 @@ function App() {
       </header>
       <main className="main-content">
         <div className="container">
-          <CustomSelect options={options} />
+          <Wrapper />
         </div>
       </main>
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { KeyboardEvent, useEffect } from 'react';
 
 function useKeyboard(callback: () => void, key: string) {

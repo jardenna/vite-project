@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import useKeyboard from '../../hooks/useKeyboard';
 import useDropdown from './useDropdown';
 
 const CustomSelect: FC<any> = ({ options }) => {
@@ -11,6 +12,7 @@ const CustomSelect: FC<any> = ({ options }) => {
     selectedOption,
     setSelectedThenCloseDropdown,
   } = useDropdown(options);
+  const selected = options[selectedOption].value;
 
   return (
     <div className="wrapper">
