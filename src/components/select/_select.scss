@@ -1,26 +1,13 @@
-.select-button:not([aria-expanded='true']) + .select-dropdown {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
-
-li[aria-selected='true'] {
-  background: #ddd;
-}
 div.wrapper {
   display: flex;
   justify-content: center;
   padding-top: 20px;
 }
 
-div.container {
-  width: 100px;
-}
-
 button {
   border: 0;
   border-radius: 4px;
-  background: hotpink;
+  background: #eee;
   width: 100%;
   padding: 6px 8px;
   position: relative;
@@ -43,7 +30,7 @@ button.expanded::after {
 }
 
 ul.options {
-  border: 1px solid hotpink;
+  border: 1px solid #eee;
   display: none;
   list-style: none;
   padding: 4px 0;

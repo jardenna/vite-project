@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import CustomSelect from './components/formElements/select/CustomSelect';
-import Select from './components/formElements/select/Select';
+import CustomSelect from './components/select/Select';
 
 const options = [
   {
@@ -32,6 +30,7 @@ const options = [
     label: 'Garmadon',
   },
 ];
+
 function App() {
   return (
     <article className="main-container">
@@ -49,7 +48,6 @@ function App() {
       <main className="main-content">
         <div className="container">
           <CustomSelect />
-          {/* <Select options={options} selectedOption="lloyd" /> */}
         </div>
       </main>
 

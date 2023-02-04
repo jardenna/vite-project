@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/no-array-index-key */
 import { useState } from 'react';
 
 const CustomSelect = () => {
@@ -17,12 +17,12 @@ const CustomSelect = () => {
     setIsOptionsOpen(!isOptionsOpen);
   };
 
-  const setSelectedThenCloseDropdown = (index) => {
+  const setSelectedThenCloseDropdown = (index: number) => {
     setSelectedOption(index);
     setIsOptionsOpen(false);
   };
 
-  const handleKeyDown = (index) => (e) => {
+  const handleKeyDown = (index: number) => (e: any) => {
     switch (e.key) {
       case ' ':
       case 'SpaceBar':
@@ -35,7 +35,7 @@ const CustomSelect = () => {
     }
   };
 
-  const handleListKeyDown = (e) => {
+  const handleListKeyDown = (e: any) => {
     switch (e.key) {
       case 'Escape':
         e.preventDefault();
@@ -50,7 +50,7 @@ const CustomSelect = () => {
       case 'ArrowDown':
         e.preventDefault();
         setSelectedOption(
-          selectedOption == optionsList.length - 1 ? 0 : selectedOption + 1
+          selectedOption === optionsList.length - 1 ? 0 : selectedOption + 1
         );
         break;
       default:
@@ -80,9 +80,10 @@ const CustomSelect = () => {
         >
           {optionsList.map((option, index) => (
             <li
+              key={index}
               id={option}
               role="option"
-              aria-selected={selectedOption == index}
+              aria-selected={selectedOption === index}
               tabIndex={0}
               onKeyDown={handleKeyDown(index)}
               onClick={() => {
@@ -97,4 +98,5 @@ const CustomSelect = () => {
     </div>
   );
 };
+
 export default CustomSelect;
