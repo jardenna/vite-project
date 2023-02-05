@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const useDropdown = (options: any) => {
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
