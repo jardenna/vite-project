@@ -4,7 +4,6 @@ interface Option {
   [key: string]: string;
 }
 
-/* eslint-disable default-case */
 const useDropdown = (
   options: Option[],
   value: string,
@@ -26,7 +25,7 @@ const useDropdown = (
     setIsDropdownOpen(false);
   };
   const optionsLength = options.length;
-  const registerOpenDropdownHandlers = () => {
+  const handleOpenDropdown = () => {
     const keyDownCallback = (e: KeyboardEvent) => {
       e.preventDefault();
 
@@ -36,31 +35,34 @@ const useDropdown = (
           setActiveIndex(
             activeIndex <= 0 ? optionsLength - 1 : activeIndex - 1
           );
-          return;
+          break;
         case 'ArrowDown':
           e.preventDefault();
           setActiveIndex(
             activeIndex + 1 === optionsLength ? 0 : activeIndex + 1
           );
-          return;
+          break;
         case 'Enter':
         case ' ': // Space
           e.preventDefault();
           handleSelect(options[activeIndex][key]);
-          return;
+          break;
         case 'Escape':
           e.preventDefault();
           setIsDropdownOpenInternal(false);
-          return;
+          break;
         case 'PageUp':
         case 'Home':
           e.preventDefault();
           setActiveIndex(0);
-          return;
+          break;
         case 'PageDown':
         case 'End':
           e.preventDefault();
           setActiveIndex(options.length - 1);
+          break;
+        default:
+          break;
       }
     };
     document.addEventListener('keydown', keyDownCallback);
@@ -69,7 +71,7 @@ const useDropdown = (
     };
   };
 
-  const registerClosedDropdownHandlers = () => {
+  const handleClosedDropdown = () => {
     const keyDownCallback = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -84,9 +86,9 @@ const useDropdown = (
   };
   useEffect(() => {
     if (isDropdownOpen) {
-      return registerOpenDropdownHandlers();
+      return handleOpenDropdown();
     }
-    return registerClosedDropdownHandlers();
+    return handleClosedDropdown();
   }, [isDropdownOpen, activeIndex]);
 
   return {

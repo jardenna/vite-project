@@ -26,7 +26,7 @@ const options = [
 ];
 const Wrapper: FC = () => {
   const [value, setValue] = useState('lloyd');
-  // console.log(value);
+  console.log(value);
   return (
     <Select options={options} val={value} onChange={setValue} keys="name" />
   );
