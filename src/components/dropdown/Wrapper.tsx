@@ -3,37 +3,32 @@ import Select from './Select';
 
 const options = [
   {
-    value: 'kai',
-    label: 'Kai',
+    name: 'kai',
   },
   {
-    value: 'nya',
-    label: 'Nya',
+    name: 'nya',
   },
   {
-    value: 'lloyd',
-    label: 'Lloyd',
+    name: 'lloyd',
   },
   {
-    value: 'zane',
-    label: 'Zane',
+    name: 'zane',
   },
   {
-    value: 'cole',
-    label: 'Cole',
+    name: 'cole',
   },
   {
-    value: 'jay',
-    label: 'Jay',
+    name: 'jay',
   },
   {
-    value: 'garmadon',
-    label: 'Garmadon',
+    name: 'garmadon',
   },
 ];
 const Wrapper: FC = () => {
   const [value, setValue] = useState('lloyd');
   // console.log(value);
-  return <Select options={options} value={value} onChange={setValue} />;
+  return (
+    <Select options={options} val={value} onChange={setValue} keys="name" />
+  );
 };
 export default Wrapper;

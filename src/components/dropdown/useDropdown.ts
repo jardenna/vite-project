@@ -1,37 +1,42 @@
 import { useState, useEffect } from 'react';
+
+interface Option {
+  [key: string]: string;
+}
+
 /* eslint-disable default-case */
 const useDropdown = (
-  options: any[],
+  options: Option[],
   value: string,
-  onChange: (e: any) => void
+  onChange: (e: string) => void,
+  key: string
 ) => {
   const [isDropdownOpen, setIsDropdownOpenInternal] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const setIsDropdownOpen = (open: boolean) => {
-    const selected = options.findIndex((o: any) => o.value === value);
+    const selected = options.findIndex((option) => option[key] === value);
     setActiveIndex(selected < 0 ? 0 : selected);
 
     setIsDropdownOpenInternal(open);
   };
-  const handleSelect = (val: any) => {
+
+  const handleSelect = (val: string) => {
     onChange(val);
     setIsDropdownOpen(false);
   };
   const optionsLength = options.length;
   const registerOpenDropdownHandlers = () => {
-    const keyDownCallback = (e: any) => {
+    const keyDownCallback = (e: KeyboardEvent) => {
       e.preventDefault();
 
       switch (e.key) {
-        case 'Up':
         case 'ArrowUp':
           e.preventDefault();
           setActiveIndex(
             activeIndex <= 0 ? optionsLength - 1 : activeIndex - 1
           );
           return;
-        case 'Down':
         case 'ArrowDown':
           e.preventDefault();
           setActiveIndex(
@@ -41,9 +46,8 @@ const useDropdown = (
         case 'Enter':
         case ' ': // Space
           e.preventDefault();
-          handleSelect(options[activeIndex].value);
+          handleSelect(options[activeIndex][key]);
           return;
-        case 'Esc':
         case 'Escape':
           e.preventDefault();
           setIsDropdownOpenInternal(false);
@@ -66,7 +70,7 @@ const useDropdown = (
   };
 
   const registerClosedDropdownHandlers = () => {
-    const keyDownCallback = (e: any) => {
+    const keyDownCallback = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         e.preventDefault();
         setIsDropdownOpen(true);

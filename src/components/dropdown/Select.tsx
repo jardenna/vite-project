@@ -1,19 +1,20 @@
 import { FC } from 'react';
 import useDropdown from './useDropdown';
 
-interface DropdownProps {
-  value: string;
-  onChange: any;
-  options: any;
+interface Option {
+  [key: string]: string;
 }
-interface OptionProps {
-  value: string;
+export interface DropdownProps {
+  val: string;
+  onChange: (value: string) => void;
+  options: Option[];
+  keys: string;
 }
 
-const Select: FC<DropdownProps> = ({ value, onChange, options }) => {
+const Select: FC<DropdownProps> = ({ val, onChange, options, keys }) => {
   const { isDropdownOpen, setIsDropdownOpen, activeIndex, handleSelect } =
-    useDropdown(options, value, onChange);
-  const chosen = options.find((o: any) => o.value === value);
+    useDropdown(options, val, onChange, keys);
+  const selectedOption = options.find((option) => option[keys] === val);
 
   return (
     <div className="select-container">
@@ -24,23 +25,23 @@ const Select: FC<DropdownProps> = ({ value, onChange, options }) => {
         aria-haspopup="listbox"
         aria-expanded={isDropdownOpen}
       >
-        {chosen?.label}
+        {selectedOption?.[keys]}
       </button>
       <ul className="select-dropdown" role="listbox" tabIndex={-1}>
-        {options.map(({ value: optionValue }: OptionProps, index: number) => (
+        {options.map((option, index: number) => (
           <li
-            key={optionValue}
+            key={option[keys]}
             aria-selected={index === activeIndex}
             role="option"
           >
             <label>
               <input
                 type="radio"
-                value={optionValue}
-                checked={chosen?.value === optionValue}
-                onChange={() => handleSelect(optionValue)}
+                value={option[keys]}
+                checked={options[0][keys] === option[keys]}
+                onChange={() => handleSelect(option[keys])}
               />
-              {optionValue}
+              {option[keys]}
             </label>
           </li>
         ))}
