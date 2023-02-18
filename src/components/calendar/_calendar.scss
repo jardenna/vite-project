@@ -1,0 +1,20 @@
+.react-datetime-picker__wrapper {
+  min-width: 300px;
+  padding: 12px;
+}
+
+.react-datetime-picker__inputGroup__divider {
+  display: none;
+}
+
+.test {
+  .react-datetime-picker__inputGroup__divider {
+    display: inline-block;
+  }
+}
+
+.react-datetime-picker__inputGroup__input {
+  &:focus-visible {
+    outline: none;
+  }
+}
