@@ -1,15 +1,22 @@
 import { useState } from 'react';
-import Images from './components/Images';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import DateTimePicker from 'react-datetime-picker';
 
-// https://jsfiddle.net/plan/V2Q58
+// import Images from './components/Images';
+
+// https://github.com/wojtekmaj/react-datetime-picker
+
+// https://stackblitz.com/edit/react-datetimepicker-yk3poz?file=src%2FApp.js,src%2Findex.js
 
 function App() {
-  const STATUS = ['All procurements', 'Draft', 'Running', 'Completed'];
-  const [isActiveFilter, setIsActiveFilter] = useState(''); // string which one is active
+  // const STATUS = ['All procurements', 'Draft', 'Running', 'Completed'];
+  // const [isActiveFilter, setIsActiveFilter] = useState(''); // string which one is active
 
-  function handleFilterClick(v: string) {
-    setIsActiveFilter(v);
-  }
+  // function handleFilterClick(v: string) {
+  //   setIsActiveFilter(v);
+  // }
+
+  const [value, onChange] = useState(new Date());
   return (
     <article className="main-container">
       <div className="image-u" />
@@ -26,7 +33,18 @@ function App() {
       </header>
       <main className="main-content">
         <div className="container">
-          {STATUS.map((status) => (
+          {/* <DatePicker
+            onChange={onChange}
+            value={value}
+            format="dd-MM-yyyy"
+            monthPlaceholder=""
+          /> */}
+          <DateTimePicker
+            onChange={onChange}
+            value={value}
+            format="dd-MM-yyyy"
+          />
+          {/* {STATUS.map((status) => (
             <button
               type="button"
               className={`btn ${
@@ -40,7 +58,7 @@ function App() {
               {status}
               {status === isActiveFilter && <span>hello</span>}
             </button>
-          ))}
+          ))} */}
         </div>
       </main>
 

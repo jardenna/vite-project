@@ -1,5 +1,5 @@
 a[class^='btn-'],
-button {
+.btn {
   @include mQ($small) {
     min-width: 140px;
   }
@@ -31,7 +31,7 @@ button {
   }
 }
 
-button.details-btn:last-child {
+.btn.details-btn:last-child {
   margin-right: 10px;
 }
 

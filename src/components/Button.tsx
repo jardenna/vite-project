@@ -9,7 +9,7 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({ text, type = 'button', ariaLabel }) => (
-  <button type={type} aria-label={ariaLabel}>
+  <button type={type} aria-label={ariaLabel} className="btn">
     {text}
   </button>
 );
