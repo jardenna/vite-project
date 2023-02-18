@@ -4,8 +4,8 @@ import { useState } from 'react';
 const useCalendar = () => {
   const [value, setValue] = useState<any>(null);
 
-  const onChange = (e: Date) => {
-    setValue(e);
+  const onChange = (date: Date) => {
+    setValue(date);
   };
 
   const onFocus = () => {
@@ -14,15 +14,8 @@ const useCalendar = () => {
     }
   };
 
-  const add = (val: Date, min: number) => {
-    const sum = val && addMinutes(val, min);
-    return sum;
-  };
-
-  const subtract = (val: Date, min: number) => {
-    const sum = val && subMinutes(val, min);
-    return sum;
-  };
+  const add = (val: Date, min: number) => val && addMinutes(val, min);
+  const subtract = (val: Date, min: number) => val && subMinutes(val, min);
 
   const onClick = (amount: number, action: string) => {
     if (value) {
