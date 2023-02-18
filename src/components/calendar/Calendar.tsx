@@ -10,19 +10,29 @@ interface CalendarProps {
   name: string;
 }
 const Calendar: FC<CalendarProps> = ({ name }) => {
-  const { setValue, subtract, onClick, onFocus, add, value } = useCalendar();
+  const { onChange, onClick, onFocus, value } = useCalendar();
 
   return (
     <>
-      <button id="120" type="button" onClick={onClick}>
+      <button
+        id="120"
+        type="button"
+        onClick={() => onClick(120, 'sub')}
+        disabled={value === null}
+      >
         Subtract 2 hour
       </button>
 
-      <button id="60" type="button" onClick={onClick}>
-        Subtract 1 hour
+      <button
+        disabled={value === null}
+        id="60"
+        type="button"
+        onClick={() => onClick(60, 'add')}
+      >
+        Add 1 hour
       </button>
       <DateTimePicker
-        onChange={setValue}
+        onChange={onChange}
         value={value}
         format="dd-MM-y HH.mm"
         dayPlaceholder=""

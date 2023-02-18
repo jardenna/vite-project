@@ -2,7 +2,11 @@ import { addMinutes, subMinutes } from 'date-fns';
 import { useState } from 'react';
 
 const useCalendar = () => {
-  const [value, setValue] = useState<Date>();
+  const [value, setValue] = useState<any>(null);
+
+  const onChange = (e: Date) => {
+    setValue(e);
+  };
 
   const onFocus = () => {
     if (!value) {
@@ -20,13 +24,16 @@ const useCalendar = () => {
     return sum;
   };
 
-  const onClick = (e: any) => {
-    const { id } = e.target;
+  const onClick = (amount: number, action: string) => {
     if (value) {
-      setValue(subtract(value, id));
+      if (action === 'sub') {
+        setValue(subtract(value, amount));
+      } else {
+        setValue(add(value, amount));
+      }
     }
   };
-  return { setValue, onClick, onFocus, add, subtract, value };
+  return { onChange, onClick, onFocus, value };
 };
 
 export default useCalendar;
