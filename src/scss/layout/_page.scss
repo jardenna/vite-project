@@ -1,29 +1,3 @@
-.hero {
-  background-image: url('/public/images/top-foto.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 350px;
-  @include mQ($small) {
-    background-position: bottom;
-    min-height: 170px;
-  }
-
-  &.flex {
-    justify-content: center;
-  }
-
-  .hero-link {
-    border: 1px solid $color-primary;
-    padding: 20px;
-    &:hover {
-      text-decoration: none;
-    }
-    @include mQ($small) {
-      display: none;
-    }
-  }
-}
-
 .main-container {
   min-height: 100vh;
   display: flex;
@@ -43,26 +17,20 @@
 .main-footer {
   background-color: #121417;
   color: #f9fafb;
-  min-height: 200px;
 }
 .main-header {
-  background-color: rgb(241, 239, 239, 0.6);
-
-  h1 {
-    font-size: 120px;
-    margin: 0;
-    font-family: $font-secondary;
+  .logo-container {
+    position: relative;
+    width: fit-content;
   }
-}
-.container {
-  padding: 30px;
-}
-code {
-  color: rgb(255, 0, 0);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-button {
-  cursor: pointer;
+  .logo {
+    font-size: 4.125rem;
+    font-weight: bold;
+  }
+  .header-tag {
+    position: absolute;
+    right: 34px;
+    top: 60px;
+    font-size: 34px;
+  }
 }

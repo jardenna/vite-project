@@ -17,34 +17,37 @@ $burgerColorActive: $color-primary;
     }
   }
 }
-.nav-container {
-  margin-top: 70px;
-}
+
 .main-nav {
   width: 100%;
-  text-align: right;
-  margin: 0;
+  font-size: 24px;
 
-  @include mQ($small) {
-    text-align: left;
-    @include transition();
-    position: fixed;
-    right: -200px;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    z-index: 20;
+  .nav-container {
+    display: flex;
+    justify-content: flex-end;
   }
 
+  // @include mQ($small) {
+  //   text-align: left;
+  //   @include transition();
+  //   position: fixed;
+  //   right: -200px;
+  //   top: 0;
+  //   width: 200px;
+  //   height: 100%;
+  //   z-index: 20;
+  // }
+
   .nav-item {
-    font-size: 14px;
     margin-right: 10px;
-    display: inline-block;
+    &:last-child {
+      margin: 0;
+    }
+
     a {
       color: $color-primary-link;
       &.active {
         color: $color-primary-link-hover;
-        text-decoration: underline;
       }
     }
 
@@ -52,11 +55,5 @@ $burgerColorActive: $color-primary;
       margin: 20px;
       display: block;
     }
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
   }
 }
