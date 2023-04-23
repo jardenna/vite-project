@@ -1,12 +1,4 @@
-import { useState } from 'react';
-
-import Calendar from './components/calendar/Calendar';
-
-// import Images from './components/Images';
-
-// https://github.com/wojtekmaj/react-datetime-picker
-
-// https://stackblitz.com/edit/react-datetimepicker-yk3poz?file=src%2FApp.js,src%2Findex.js
+import Images from './components/Images';
 
 function App() {
   return (
@@ -24,10 +16,7 @@ function App() {
         </div>
       </header>
       <main className="main-content">
-        <div className="container">
-          <Calendar name="ca1" />
-          <Calendar name="ca2" />
-        </div>
+        <Images />
       </main>
 
       <footer className="main-footer">

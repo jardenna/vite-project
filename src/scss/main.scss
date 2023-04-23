@@ -23,9 +23,15 @@ body {
   font-family: $font-primary;
 
   color: $color-primary;
-  background-color: #fefeff;
 }
 
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #333333;
+    color: #f5f5f5;
+  }
+}
 img {
   width: 100%;
 }
