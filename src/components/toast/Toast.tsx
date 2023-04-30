@@ -1,32 +1,69 @@
 import { FC, useEffect, useState } from 'react';
+import { TypesEnum } from '../../enums';
+
+import './toast.scss';
 
 interface ToastProps {
   id: number;
   title: string;
   description: string;
-  type?: string;
+  type?: TypesEnum;
 }
 
 interface ToastListProps {
   toastList: ToastProps[];
-  position: string;
+  position?: string;
+  autoDelete?: boolean;
+  autoDeleteTime?: number;
 }
 
-const Toast: FC<ToastListProps> = ({ toastList, position }) => {
+const Toast: FC<ToastListProps> = ({
+  toastList,
+  position = 'bottom-right',
+  autoDelete,
+  autoDeleteTime = 2000,
+}) => {
   const [list, setList] = useState(toastList);
 
   useEffect(() => {
-    setList(toastList);
-  }, [toastList, list]);
+    setList([...toastList]);
+  }, [toastList]);
+
+  const deleteToast = (id: number) => {
+    const listItemIndex = list.findIndex((e) => e.id === id);
+
+    const toastListItem = toastList.findIndex((e) => e.id === id);
+    list.splice(listItemIndex, 1);
+    toastList.splice(toastListItem, 1);
+    setList([...list]);
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (autoDelete && toastList.length && list.length) {
+        deleteToast(toastList[0].id);
+      }
+    }, autoDeleteTime);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [toastList, autoDelete, autoDeleteTime, list]);
 
   return (
-    <div className={`notification-container ${position} `}>
+    <section className={`notification-container ${position} `}>
       {list.map((toast) => (
         <div
+          role="alert"
           key={toast.id}
-          className={`notification toast ${position} ${toast.type || 'info'}`}
+          className={`notification toast  ${toast.type || 'info'}`}
         >
-          <button type="button">X</button>
+          <button
+            type="button"
+            onClick={() => deleteToast(toast.id)}
+            aria-label="Close notification"
+          >
+            X
+          </button>
 
           <div>
             <p className="notification-title">{toast.title}</p>
@@ -34,7 +71,7 @@ const Toast: FC<ToastListProps> = ({ toastList, position }) => {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 export default Toast;

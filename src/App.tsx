@@ -1,13 +1,37 @@
 import Header from './layout/Header';
-import { Title } from './enums';
+import { Title, TypesEnum } from './enums';
 import useDocumentTitle from './hooks/useDocumentTitle';
+import Toast from './components/toast/Toast';
 
 function App() {
   useDocumentTitle(Title.Home);
+
+  const toastList = [
+    {
+      id: 1,
+      title: 'Warning',
+      description: 'This is an error toast component',
+      type: TypesEnum.Danger,
+    },
+    {
+      id: 2,
+      title: 'Success',
+      description: 'This is a success toast component',
+      type: TypesEnum.Success,
+    },
+    {
+      id: 3,
+      title: 'Danger',
+      description: 'This is an error toast component',
+      type: TypesEnum.Danger,
+    },
+  ];
+
   return (
     <article className="main-container">
       <Header />
 
+      <Toast toastList={toastList} autoDelete />
       <div className="container">
         <main className="main-content">
           <aside className="aside">
