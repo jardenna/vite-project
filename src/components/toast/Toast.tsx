@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { TypesEnum } from '../../enums';
 
 import './toast.scss';
+import Portal from '../Portal';
 
 interface ToastProps {
   id: number;
@@ -31,19 +32,15 @@ const Toast: FC<ToastListProps> = ({
     setList([...toastList]);
   }, [toastList]);
 
-  const deleteToast = (id: number) => {
-    const listItemIndex = list.findIndex((e) => e.id === id);
-    console.log(id, toastList);
-
-    const toastListItem = toastList.findIndex((e) => e.id === id);
-    list.splice(listItemIndex, 1);
-    toastList.splice(toastListItem, 1);
-    setList([...list]);
+  const handleDeleteToast = (id: number) => {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (autoDelete && toastList.length && list.length) {
-        deleteToast(toastList[0].id);
+        handleDeleteToast(list[0].id);
       }
     }, autoDeleteTime + extendAutoDeleteTime);
 
@@ -53,28 +50,30 @@ const Toast: FC<ToastListProps> = ({
   }, [toastList, autoDelete, autoDeleteTime, list]);
 
   return (
-    <section className={`notification-container ${position} `}>
-      {list.map((toast) => (
-        <div
-          role="alert"
-          key={toast.id}
-          className={`notification toast  ${toast.type || 'info'}`}
-        >
-          <button
-            type="button"
-            onClick={() => deleteToast(toast.id)}
-            aria-label="Close notification"
+    <Portal wrapperId="toast-portal">
+      <section className={`notification-container ${position} `}>
+        {list.map((toast) => (
+          <div
+            role="alert"
+            key={toast.id}
+            className={`notification toast  ${toast.type || 'info'}`}
           >
-            X
-          </button>
+            <button
+              type="button"
+              onClick={() => handleDeleteToast(toast.id)}
+              aria-label="Close notification"
+            >
+              X
+            </button>
 
-          <div>
-            <p className="notification-title">{toast.title}</p>
-            <p className="notification-message">{toast.description}</p>
+            <div>
+              <p className="notification-title">{toast.title}</p>
+              <p className="notification-message">{toast.description}</p>
+            </div>
           </div>
-        </div>
-      ))}
-    </section>
+        ))}
+      </section>
+    </Portal>
   );
 };
 export default Toast;
