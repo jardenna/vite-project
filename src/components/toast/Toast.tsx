@@ -11,7 +11,7 @@ interface ToastProps {
   type?: TypesEnum;
 }
 
-interface ToastListProps {
+export interface ToastListProps {
   toastList: ToastProps[];
   position?: string;
   autoDelete?: boolean;

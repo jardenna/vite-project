@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Header from './layout/Header';
 import { Title, TypesEnum } from './enums';
 import useDocumentTitle from './hooks/useDocumentTitle';
@@ -5,8 +6,8 @@ import Toast from './components/toast/Toast';
 
 function App() {
   useDocumentTitle(Title.Home);
-
-  const toastList = [
+  const [toastList, setToastList] = useState<any>([]);
+  const list = [
     {
       id: 1,
       title: 'Warning',
@@ -30,7 +31,9 @@ function App() {
   return (
     <article className="main-container">
       <Header />
-
+      <button type="button" onClick={() => setToastList(list)}>
+        show
+      </button>
       <Toast toastList={toastList} autoDelete />
       <div className="container">
         <main className="main-content">
