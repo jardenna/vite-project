@@ -1,6 +1,9 @@
 import Header from './layout/Header';
+import { Title } from './enums';
+import useDocumentTitle from './hooks/useDocumentTitle';
 
 function App() {
+  useDocumentTitle(Title.Home);
   return (
     <article className="main-container">
       <Header />
