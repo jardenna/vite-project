@@ -19,7 +19,7 @@ body {
 
 body {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-family: $font-primary;
   color: $color-primary;
 }
@@ -30,6 +30,13 @@ body {
     background-color: #333333;
     color: #f5f5f5;
   }
+}
+
+h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 100;
+  margin-bottom: 10px;
 }
 img {
   width: 100%;
@@ -60,10 +67,4 @@ form {
 
 svg {
   width: 20px;
-}
-
-.container {
-  max-width: 1600px;
-  padding: 20px;
-  margin: 0 auto;
 }
