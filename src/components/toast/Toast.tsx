@@ -15,6 +15,7 @@ interface ToastListProps {
   position?: string;
   autoDelete?: boolean;
   autoDeleteTime?: number;
+  extendAutoDeleteTime?: number;
 }
 
 const Toast: FC<ToastListProps> = ({
@@ -22,6 +23,7 @@ const Toast: FC<ToastListProps> = ({
   position = 'bottom-right',
   autoDelete,
   autoDeleteTime = 2000,
+  extendAutoDeleteTime = 0,
 }) => {
   const [list, setList] = useState(toastList);
 
@@ -31,6 +33,7 @@ const Toast: FC<ToastListProps> = ({
 
   const deleteToast = (id: number) => {
     const listItemIndex = list.findIndex((e) => e.id === id);
+    console.log(id, toastList);
 
     const toastListItem = toastList.findIndex((e) => e.id === id);
     list.splice(listItemIndex, 1);
@@ -42,7 +45,7 @@ const Toast: FC<ToastListProps> = ({
       if (autoDelete && toastList.length && list.length) {
         deleteToast(toastList[0].id);
       }
-    }, autoDeleteTime);
+    }, autoDeleteTime + extendAutoDeleteTime);
 
     return () => {
       clearInterval(interval);
