@@ -10,13 +10,13 @@ const options: Option[] = [
   { value: 'banana', label: 'Banana' },
   { value: 'orange', label: 'Orange' },
   { value: 'peach', label: 'Peach' },
-  { value: 'plum', label: 'Plum' },
-  { value: 'carrot', label: 'Carrot' },
-  { value: 'broccoli', label: 'Broccoli' },
-  { value: 'cucumber', label: 'Cucumber' },
-  { value: 'water', label: 'Water' },
-  { value: 'juice', label: 'Juice' },
-  { value: 'soda', label: 'Soda' },
+  //   { value: 'plum', label: 'Plum' },
+  //   { value: 'carrot', label: 'Carrot' },
+  //   { value: 'broccoli', label: 'Broccoli' },
+  //   { value: 'cucumber', label: 'Cucumber' },
+  //   { value: 'water', label: 'Water' },
+  //   { value: 'juice', label: 'Juice' },
+  //   { value: 'soda', label: 'Soda' },
 ];
 
 const FilteredSelectBoxes = () => {
@@ -45,26 +45,24 @@ const FilteredSelectBoxes = () => {
           </option>
         ))}
       </select>
-      {selectedOption1 && (
-        <select value={selectedOption2} onChange={handleSelectOption2}>
-          <option value="">Select an option</option>
-          {remainingOptions1.map((option: Option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      )}
-      {selectedOption2 && (
-        <select>
-          <option value="">Select an option</option>
-          {remainingOptions2.map((option: Option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      )}
+
+      <select value={selectedOption2} onChange={handleSelectOption2}>
+        <option value="">Select an option</option>
+        {remainingOptions1.map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+
+      <select>
+        <option value="">Select an option</option>
+        {remainingOptions2.map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
