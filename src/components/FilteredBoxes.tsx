@@ -22,15 +22,17 @@ const options: Option[] = [
 const FilteredSelectBoxes = () => {
   const [selectedOption1, setSelectedOption1] = useState<string>('');
   const [selectedOption2, setSelectedOption2] = useState<string>('');
-  const remainingOptions1: Option[] = options.filter(
-    (option: Option) => option.value !== selectedOption1
+
+  const remainingOptions1 = options.filter(
+    (option) => option.value !== selectedOption1
   );
-  const remainingOptions2: Option[] = remainingOptions1.filter(
-    (option: Option) => option.value !== selectedOption2
+
+  const remainingOptions2 = remainingOptions1.filter(
+    (option) => option.value !== selectedOption2
   );
+
   const handleSelectOption1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption1(event.target.value);
-    setSelectedOption2('');
   };
   const handleSelectOption2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption2(event.target.value);
@@ -38,7 +40,6 @@ const FilteredSelectBoxes = () => {
   return (
     <div>
       <select value={selectedOption1} onChange={handleSelectOption1}>
-        <option value="">Select an option</option>
         {options.map((option: Option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -47,7 +48,6 @@ const FilteredSelectBoxes = () => {
       </select>
 
       <select value={selectedOption2} onChange={handleSelectOption2}>
-        <option value="">Select an option</option>
         {remainingOptions1.map((option: Option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -56,7 +56,6 @@ const FilteredSelectBoxes = () => {
       </select>
 
       <select>
-        <option value="">Select an option</option>
         {remainingOptions2.map((option: Option) => (
           <option key={option.value} value={option.value}>
             {option.label}
