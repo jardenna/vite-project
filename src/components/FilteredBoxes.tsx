@@ -53,11 +53,13 @@ const FilteredSelectBoxes = () => {
     const { value } = event.target;
     setSelectedOption3(value);
   };
+  const [shown, setShown] = useState(true);
 
   const legs = [
     {
-      id: 1,
+      id: '1',
       title: 'Leg 1',
+
       component: (
         <>
           <select value={selectedOption1} onChange={handleSelectOption1}>
@@ -74,7 +76,7 @@ const FilteredSelectBoxes = () => {
       ),
     },
     {
-      id: 2,
+      id: '2',
       title: 'Leg 2',
       component: (
         <>
@@ -92,7 +94,7 @@ const FilteredSelectBoxes = () => {
       ),
     },
     {
-      id: 3,
+      id: '3',
       title: 'Leg 3',
       component: (
         <>
@@ -110,7 +112,7 @@ const FilteredSelectBoxes = () => {
       ),
     },
     {
-      id: 4,
+      id: '4',
       title: 'Leg 4',
       component: (
         <>
@@ -127,7 +129,71 @@ const FilteredSelectBoxes = () => {
         </>
       ),
     },
+
+    {
+      id: '5',
+      title: 'Leg 5',
+      component: (
+        <>
+          <select>
+            {remainingOptions3.map((option: Option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <section>Section 1</section>
+          <section>Section 2</section>
+          <section>Section 3</section>
+        </>
+      ),
+    },
+    {
+      id: '6',
+      title: 'Leg 6',
+      component: (
+        <>
+          <select>
+            {remainingOptions3.map((option: Option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <section>Section 1</section>
+          <section>Section 2</section>
+          <section>Section 3</section>
+        </>
+      ),
+    },
+    // {
+    //   id: '7',
+    //   title: 'Leg 7',
+    //   component: (
+    //     <>
+    //       <select>
+    //         {remainingOptions3.map((option: Option) => (
+    //           <option key={option.value} value={option.value}>
+    //             {option.label}
+    //           </option>
+    //         ))}
+    //       </select>
+    //       <section>Section 1</section>
+    //       <section>Section 2</section>
+    //       <section>Section 3</section>
+    //     </>
+    //   ),
+    // },
   ];
+  const [legsArray, setLegsArray] = useState(legs);
+
+  const handleRemoveLeg = (e: any) => {
+    const { id } = e.target;
+
+    const arr = legsArray.filter((a: any) => a.id !== id);
+    setLegsArray(arr);
+  };
+
   return (
     <div>
       <div className="grid test1 grid-header">
@@ -136,15 +202,26 @@ const FilteredSelectBoxes = () => {
           <div className="col-start-3">Arrival</div>
         </div>
       </div>
-      {legs.map((leg, index: number) => (
+      {legsArray.map((leg, index: number) => (
         <fieldset key={leg.id} className="grid test1">
-          <legend> {leg.title}</legend>
+          <legend>{leg.title}</legend>
           <div className="grid test">{leg.component}</div>
-          {legs.length - 1 === index && index !== 0 && (
-            <button type="button">Delete</button>
+
+          {legsArray.length - 1 === index && index !== 0 && (
+            <button type="button" id={leg.id} onClick={handleRemoveLeg}>
+              Delete
+            </button>
           )}
         </fieldset>
       ))}
+
+      <button
+        type="button"
+        className="btn btn-primary"
+        disabled={legsArray.length === 7}
+      >
+        Add Leg
+      </button>
     </div>
   );
 };
