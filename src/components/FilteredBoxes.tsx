@@ -184,6 +184,7 @@ const FilteredSelectBoxes = () => {
     //   ),
     // },
   ];
+  const test = legs.slice(0, legsArray);
 
   return (
     <div>
@@ -193,12 +194,12 @@ const FilteredSelectBoxes = () => {
           <div className="col-start-3">Arrival</div>
         </div>
       </div>
-      {legs.slice(0, legsArray).map((leg, index: any) => (
+      {test.map((leg, index: any) => (
         <fieldset key={leg.id} className="grid test1">
           <legend>{leg.title}</legend>
           <div className="grid test">{leg.component}</div>
 
-          {legs.slice(0, legsArray).length - 1 === index && index !== 0 && (
+          {test.length - 1 === index && index !== 0 && (
             <button
               type="button"
               id={leg.id}
