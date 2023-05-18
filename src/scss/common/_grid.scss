@@ -1,22 +1,22 @@
 .grid {
   display: grid;
-  gap: 8px;
+  gap: 28px;
 }
 
 .test {
-  grid-template-columns: 48px repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  min-width: 700px;
+}
+.test1 {
+  grid-template-columns: 48px repeat(2, 1fr);
   margin-bottom: 12px;
 }
 
-.grid-header {
-  div {
-    &:first-child {
-      grid-column-start: 2;
-    }
-    &:last-child {
-      grid-column-start: 4;
-    }
-  }
+.col-start-2 {
+  grid-column-start: 2;
+}
+.col-start-3 {
+  grid-column-start: 3;
 }
 
 .pr-40 {
