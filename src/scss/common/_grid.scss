@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  gap: 8px;
+}
+
+.test {
+  grid-template-columns: 48px repeat(4, 1fr);
+  margin-bottom: 12px;
+}
+
+.grid-header {
+  div {
+    &:first-child {
+      grid-column-start: 2;
+    }
+    &:last-child {
+      grid-column-start: 4;
+    }
+  }
+}
+
+.pr-40 {
+  padding-right: 40px;
+}
+
+fieldset {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+legend {
+  float: left;
+}
