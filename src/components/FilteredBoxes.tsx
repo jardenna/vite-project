@@ -53,7 +53,7 @@ const FilteredSelectBoxes = () => {
     const { value } = event.target;
     setSelectedOption3(value);
   };
-  const [inde, setInde] = useState(0);
+  const [legsArray, setLegsArray] = useState(1);
 
   const legs = [
     {
@@ -184,15 +184,6 @@ const FilteredSelectBoxes = () => {
     //   ),
     // },
   ];
-  const [legsArray, setLegsArray] = useState(legs);
-
-  const handleRemoveLeg = (e: any) => {
-    const { id } = e.target;
-    console.log(inde);
-
-    const arr = legsArray.slice(0, inde).filter((a: any) => a.id !== id);
-    setLegsArray(arr);
-  };
 
   return (
     <div>
@@ -202,16 +193,16 @@ const FilteredSelectBoxes = () => {
           <div className="col-start-3">Arrival</div>
         </div>
       </div>
-      {legsArray.slice(0, inde).map((leg, index: any) => (
+      {legs.slice(0, legsArray).map((leg, index: any) => (
         <fieldset key={leg.id} className="grid test1">
           <legend>{leg.title}</legend>
           <div className="grid test">{leg.component}</div>
 
-          {legsArray.slice(0, inde).length - 1 === index && index !== 0 && (
+          {legs.slice(0, legsArray).length - 1 === index && index !== 0 && (
             <button
               type="button"
               id={leg.id}
-              onClick={() => setInde((prevIndex) => prevIndex - 1)}
+              onClick={() => setLegsArray((prevIndex) => prevIndex - 1)}
             >
               Delete
             </button>
@@ -220,10 +211,10 @@ const FilteredSelectBoxes = () => {
       ))}
 
       <button
-        onClick={() => setInde((prevIndex) => prevIndex + 1)}
+        onClick={() => setLegsArray((prevIndex) => prevIndex + 1)}
         type="button"
         className="btn btn-primary"
-        disabled={legsArray.length === 7}
+        disabled={legs.length === 7}
       >
         Add Leg
       </button>
