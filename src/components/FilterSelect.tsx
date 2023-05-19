@@ -1,96 +1,88 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const dropdowns = [
-  {
-    name: 'dropdown1',
-    options: ['apple', 'banana', 'pineapple', 'pear', 'mango'],
-  },
-  {
-    name: 'dropdown2',
-    options: ['apple', 'banana', 'pineapple', 'pear', 'mango'],
-  },
-  {
-    name: 'dropdown3',
-    options: ['apple', 'banana', 'pineapple', 'pear', 'mango'],
-  },
+type Option = {
+  value: string;
+  label: string;
+};
+
+const options: Option[] = [
+  { value: 'apple', label: 'Apple' },
+  { value: 'banana', label: 'Banana' },
+  { value: 'orange', label: 'Orange' },
+  { value: 'peach', label: 'Peach' },
+  { value: 'plum', label: 'Plum' },
 ];
 
-const FilterSelect = () => {
-  const [selected, setSelected] = useState([]);
+const FilterSelect: React.FC = () => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+  const handleChange1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOptions([event.target.value]);
+  };
+
+  const handleChange2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const x = selectedOptions.slice(0, 1);
+    const y = [...x, event.target.value];
+    setSelectedOptions(y);
+  };
+
+  const handleChange3 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const x = selectedOptions.slice(0, 2);
+    const y = [...x, event.target.value];
+    setSelectedOptions(y);
+  };
+  const handleChange4 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const x = selectedOptions.slice(0, 3);
+    const y = [...x, event.target.value];
+
+    setSelectedOptions(y);
+  };
+  const getFilteredOptions = (index: number): Option[] => {
+    const selectedValues = selectedOptions.slice(0, index);
+    const remainingOptions = options.filter(
+      (option) => !selectedValues.includes(option.value)
+    );
+    return remainingOptions;
+  };
 
   return (
-    <div className="App">
-      {dropdowns.map((dropdown, index) => {
-        const dropdownItem =
-          selected &&
-          selected.length &&
-          selected.filter((selectedItem) => !!selectedItem[dropdown.name]);
-        const dropdownItemName =
-          (dropdownItem && dropdownItem[0] && dropdownItem[0][dropdown.name]) ||
-          '';
-        const key = `dropdown-${dropdown.name}-${index}`;
+    <div>
+      <select value={selectedOptions[0]} onChange={handleChange1}>
+        <option value="">Select an option</option>
+        {options.map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
 
-        return (
-          <select
-            key={key}
-            name={dropdown.name}
-            value={dropdownItemName}
-            onChange={(event) => {
-              const newSelected = selected.length
-                ? selected.map((selectedItem) => {
-                    if (selectedItem[dropdown.name]) {
-                      const newSelectedItem = {
-                        [dropdown.name]: event.target.value,
-                      };
+      <select value={selectedOptions[1]} onChange={handleChange2}>
+        <option value="">Select an option</option>
+        {getFilteredOptions(1).map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
 
-                      return newSelectedItem;
-                    }
-
-                    return selectedItem;
-                  })
-                : [{ [dropdown.name]: event.target.value }];
-
-              if (
-                !newSelected.filter(
-                  (filteredItem) => !!filteredItem[dropdown.name]
-                ).length
-              ) {
-                newSelected.push({ [dropdown.name]: event.target.value });
-              }
-
-              setSelected(newSelected);
-            }}
-          >
-            <option>Select</option>
-            {dropdown.options
-              .filter((option) => {
-                if (selected.length) {
-                  return !selected.filter(
-                    (selectedItem) =>
-                      selectedItem[Object.keys(selectedItem)[0]] === option &&
-                      Object.keys(selectedItem)[0] !== dropdown.name
-                  ).length;
-                }
-
-                return true;
-              })
-              .map((option, i) => {
-                const ky = `dropdown-${dropdown.name}-${option}-${i}`;
-
-                return (
-                  <option key={ky} value={option}>
-                    {option}
-                  </option>
-                );
-              })}
-          </select>
-        );
-      })}
+      <select value={selectedOptions[2]} onChange={handleChange3}>
+        <option value="">Select an option</option>
+        {getFilteredOptions(2).map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+      <select value={selectedOptions[3]} onChange={handleChange4}>
+        <option value="">Select an option</option>
+        {getFilteredOptions(3).map((option: Option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
 
 export default FilterSelect;
-// https://codesandbox.io/s/multiple-dropdowns-shared-state-react-e2mtb?file=/src/App.js
