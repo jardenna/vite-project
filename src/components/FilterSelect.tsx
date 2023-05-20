@@ -17,23 +17,34 @@ const FilterSelect: React.FC = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
   const handleChange1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOptions([event.target.value]);
+    const { value } = event.target;
+
+    setSelectedOptions([value]);
   };
 
   const handleChange2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
     const x = selectedOptions.slice(0, 1);
-    const y = [...x, event.target.value];
+
+    const y = [...x, value];
+
     setSelectedOptions(y);
   };
 
   const handleChange3 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
+
     const x = selectedOptions.slice(0, 2);
-    const y = [...x, event.target.value];
+
+    const y = [...x, value];
+
     setSelectedOptions(y);
   };
   const handleChange4 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
     const x = selectedOptions.slice(0, 3);
-    const y = [...x, event.target.value];
+
+    const y = [...x, value];
 
     setSelectedOptions(y);
   };
