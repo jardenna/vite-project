@@ -24,19 +24,34 @@ const options: Option[] = [
   //   { value: 'soda', label: 'Soda' },
 ];
 
+const selectValueNames = {
+  select1Value: '',
+  select2Value: '',
+  select3Value: '',
+  select4Value: '',
+};
 const FilteredSelectBoxes = () => {
-  const [selectValues, setSelectValues] = useState<SelectValues>({
-    select1Value: '',
-    select2Value: '',
-    select3Value: '',
-    select4Value: '',
-  });
+  const [selectValues, setSelectValues] =
+    useState<SelectValues>(selectValueNames);
+  const [options2, setoptions2] = useState(options);
+  const [options3, setoptions3] = useState(options);
+  const [options4, setoptions4] = useState(options);
 
   const handleSelectChange = (key: keyof SelectValues, value: string) => {
     const updatedValues: SelectValues = {
       ...selectValues,
       [key]: value,
     };
+
+    // Set Options based on filtered previous options
+    const opt2 = options.filter((a) => a.value !== updatedValues.select1Value);
+    setoptions2(opt2);
+
+    const opt3 = opt2.filter((a) => a.value !== updatedValues.select2Value);
+    setoptions3(opt3);
+
+    const opt4 = opt3.filter((a) => a.value !== updatedValues.select3Value);
+    setoptions4(opt4);
 
     // Iterate over each select box
     Object.keys(updatedValues).forEach((selectKey) => {
@@ -89,13 +104,11 @@ const FilteredSelectBoxes = () => {
             onChange={(e) => handleSelectChange('select2Value', e.target.value)}
           >
             <option value="Select one">Select one</option>
-            {options
-              .filter((option) => option.value !== selectValues.select1Value)
-              .map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
+            {options2.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
           <section>Section 1</section>
           <section>Section 2</section>
@@ -113,17 +126,11 @@ const FilteredSelectBoxes = () => {
             onChange={(e) => handleSelectChange('select3Value', e.target.value)}
           >
             <option value="Select one">Select one</option>
-            {options
-              .filter(
-                (option) =>
-                  option.value !== selectValues.select1Value &&
-                  option.value !== selectValues.select2Value
-              )
-              .map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
+            {options3.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
           <section>Section 1</section>
           <section>Section 2</section>
@@ -141,18 +148,11 @@ const FilteredSelectBoxes = () => {
             onChange={(e) => handleSelectChange('select4Value', e.target.value)}
           >
             <option value="Select one">Select one</option>
-            {options
-              .filter(
-                (option) =>
-                  option.value !== selectValues.select1Value &&
-                  option.value !== selectValues.select2Value &&
-                  option.value !== selectValues.select3Value
-              )
-              .map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
+            {options4.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
           <section>Section 1</section>
           <section>Section 2</section>
