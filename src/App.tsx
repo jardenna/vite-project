@@ -1,6 +1,6 @@
 import FilterSelect from './components/FilterSelect';
 import FilteredSelectBoxes from './components/FilteredBoxes';
-import MyComponent from './components/filterselect2';
+import MyComponent from './components/Filterselect2';
 import { Title } from './enums';
 import useDocumentTitle from './hooks/useDocumentTitle';
 
@@ -11,8 +11,8 @@ function App() {
     <article className="main-container">
       <div className="container">
         <MyComponent />
-
-        {/* <FilterSelect /> */}
+        {/* 
+        <FilterSelect /> */}
       </div>
     </article>
   );
