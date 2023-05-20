@@ -11,7 +11,7 @@ function App() {
   return (
     <article className="main-container">
       <div className="container">
-        <FilterComponent />
+        <FilteredSelectBoxes />
       </div>
     </article>
   );

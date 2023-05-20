@@ -56,6 +56,7 @@ const FilterComponent: React.FC = () => {
         value={selectValues.select1Value}
         onChange={(e) => handleSelectChange('select1Value', e.target.value)}
       >
+        <option value="Select one">Select one</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
@@ -66,6 +67,7 @@ const FilterComponent: React.FC = () => {
         value={selectValues.select2Value}
         onChange={(e) => handleSelectChange('select2Value', e.target.value)}
       >
+        <option value="Select one">Select one</option>
         {options
           .filter((option) => option.value !== selectValues.select1Value)
           .map((option) => (
@@ -78,6 +80,7 @@ const FilterComponent: React.FC = () => {
         value={selectValues.select3Value}
         onChange={(e) => handleSelectChange('select3Value', e.target.value)}
       >
+        <option value="Select one">Select one</option>
         {options
           .filter(
             (option) =>
@@ -94,6 +97,7 @@ const FilterComponent: React.FC = () => {
         value={selectValues.select4Value}
         onChange={(e) => handleSelectChange('select4Value', e.target.value)}
       >
+        <option value="Select one">Select one</option>
         {options
           .filter(
             (option) =>
