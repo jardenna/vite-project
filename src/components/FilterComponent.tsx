@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+interface Option {
+  value: string;
+  label: string;
+}
+
 interface SelectValues {
   select1Value: string;
   select2Value: string;
@@ -15,13 +20,12 @@ const FilterComponent: React.FC = () => {
     select4Value: '',
   });
 
-  const options = [
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4',
-    'Option 5',
-    'Option 6',
+  const options: Option[] = [
+    { value: 'apple', label: 'Apple' },
+    { value: 'banana', label: 'Banana' },
+    { value: 'orange', label: 'Orange' },
+    { value: 'peach', label: 'Peach' },
+    { value: 'plum', label: 'Plum' },
   ];
 
   const handleSelectChange = (key: keyof SelectValues, value: string) => {
@@ -53,8 +57,8 @@ const FilterComponent: React.FC = () => {
         onChange={(e) => handleSelectChange('select1Value', e.target.value)}
       >
         {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
+          <option key={option.value} value={option.value}>
+            {option.label}
           </option>
         ))}
       </select>
@@ -63,10 +67,10 @@ const FilterComponent: React.FC = () => {
         onChange={(e) => handleSelectChange('select2Value', e.target.value)}
       >
         {options
-          .filter((option) => option !== selectValues.select1Value)
+          .filter((option) => option.value !== selectValues.select1Value)
           .map((option) => (
-            <option key={option} value={option}>
-              {option}
+            <option key={option.value} value={option.value}>
+              {option.label}
             </option>
           ))}
       </select>
@@ -77,12 +81,12 @@ const FilterComponent: React.FC = () => {
         {options
           .filter(
             (option) =>
-              option !== selectValues.select1Value &&
-              option !== selectValues.select2Value
+              option.value !== selectValues.select1Value &&
+              option.value !== selectValues.select2Value
           )
           .map((option) => (
-            <option key={option} value={option}>
-              {option}
+            <option key={option.value} value={option.value}>
+              {option.label}
             </option>
           ))}
       </select>
@@ -93,13 +97,13 @@ const FilterComponent: React.FC = () => {
         {options
           .filter(
             (option) =>
-              option !== selectValues.select1Value &&
-              option !== selectValues.select2Value &&
-              option !== selectValues.select3Value
+              option.value !== selectValues.select1Value &&
+              option.value !== selectValues.select2Value &&
+              option.value !== selectValues.select3Value
           )
           .map((option) => (
-            <option key={option} value={option}>
-              {option}
+            <option key={option.value} value={option.value}>
+              {option.label}
             </option>
           ))}
       </select>
