@@ -54,47 +54,6 @@ const FilteredSelectBoxes = () => {
     setSelectValues(updatedValues);
   };
 
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const handleChange1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value, name } = event.target;
-
-    setSelectedOptions([value]);
-  };
-
-  const handleChange2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value, name } = event.target;
-    const x = selectedOptions.slice(0, 1);
-
-    const y = [...x, value];
-
-    setSelectedOptions(y);
-  };
-
-  const handleChange3 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value, name } = event.target;
-
-    const x = selectedOptions.slice(0, 2);
-
-    const y = [...x, value];
-
-    setSelectedOptions(y);
-  };
-  const handleChange4 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value, name } = event.target;
-    const x = selectedOptions.slice(0, 3);
-    console.log(name, value);
-    const y = [...x, value];
-
-    setSelectedOptions(y);
-  };
-  const getFilteredOptions = (index: number): Option[] => {
-    const selectedValues = selectedOptions.slice(0, index);
-    const remainingOptions = options.filter(
-      (option) => !selectedValues.includes(option.value)
-    );
-    return remainingOptions;
-  };
-
   const [legsArray, setLegsArray] = useState(1);
 
   const legs = [
