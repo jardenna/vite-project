@@ -20,39 +20,48 @@ const options: Option[] = [
 ];
 
 const FilteredSelectBoxes = () => {
-  const [selectedOption1, setSelectedOption1] = useState<string>('');
-  const [selectedOption2, setSelectedOption2] = useState<string>('');
-  const [selectedOption3, setSelectedOption3] = useState<string>('');
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const handleChange1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value, name } = event.target;
+    console.log(name, value);
 
-  const [options1, setoptions1] = useState(options);
-
-  // Leg 1
-
-  const handleSelectOption1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-    const test1 = options.filter((option) => option.value !== value);
-    setoptions1(test1);
-    setSelectedOption1(value);
+    setSelectedOptions([value]);
   };
 
-  // Leg 2
-  const remainingOptions2 = options1.filter(
-    (option) => option.value !== selectedOption2
-  );
-  const handleSelectOption2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-    setSelectedOption2(value);
+  const handleChange2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value, name } = event.target;
+    const x = selectedOptions.slice(0, 1);
+    console.log(name, value);
+    const y = [...x, value];
+
+    setSelectedOptions(y);
   };
 
-  // Leg 3
-  const remainingOptions3 = remainingOptions2.filter(
-    (option) => option.value !== selectedOption3
-  );
+  const handleChange3 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value, name } = event.target;
+    console.log(name, value);
+    const x = selectedOptions.slice(0, 2);
 
-  const handleSelectOption3 = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-    setSelectedOption3(value);
+    const y = [...x, value];
+
+    setSelectedOptions(y);
   };
+  const handleChange4 = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value, name } = event.target;
+    const x = selectedOptions.slice(0, 3);
+    console.log(name, value);
+    const y = [...x, value];
+
+    setSelectedOptions(y);
+  };
+  const getFilteredOptions = (index: number): Option[] => {
+    const selectedValues = selectedOptions.slice(0, index);
+    const remainingOptions = options.filter(
+      (option) => !selectedValues.includes(option.value)
+    );
+    return remainingOptions;
+  };
+
   const [legsArray, setLegsArray] = useState(1);
 
   const legs = [
@@ -61,7 +70,8 @@ const FilteredSelectBoxes = () => {
       title: 'Leg 1',
       component: (
         <>
-          <select value={selectedOption1} onChange={handleSelectOption1}>
+          <select value={selectedOptions[0]} onChange={handleChange1} name="1">
+            <option value="">Select an option</option>
             {options.map((option: Option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -79,8 +89,9 @@ const FilteredSelectBoxes = () => {
       title: 'Leg 2',
       component: (
         <>
-          <select value={selectedOption2} onChange={handleSelectOption2}>
-            {options1.map((option: Option) => (
+          <select value={selectedOptions[1]} onChange={handleChange2} name="2">
+            <option value="">Select an option</option>
+            {getFilteredOptions(1).map((option: Option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -97,8 +108,9 @@ const FilteredSelectBoxes = () => {
       title: 'Leg 3',
       component: (
         <>
-          <select value={selectedOption3} onChange={handleSelectOption3}>
-            {remainingOptions2.map((option: Option) => (
+          <select value={selectedOptions[2]} onChange={handleChange3} name="3">
+            <option value="">Select an option</option>
+            {getFilteredOptions(2).map((option: Option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -115,8 +127,9 @@ const FilteredSelectBoxes = () => {
       title: 'Leg 4',
       component: (
         <>
-          <select>
-            {remainingOptions3.map((option: Option) => (
+          <select value={selectedOptions[3]} onChange={handleChange4} name="4">
+            <option value="">Select an option</option>
+            {getFilteredOptions(3).map((option: Option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -129,42 +142,42 @@ const FilteredSelectBoxes = () => {
       ),
     },
 
-    {
-      id: '5',
-      title: 'Leg 5',
-      component: (
-        <>
-          <select>
-            {remainingOptions3.map((option: Option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <section>Section 1</section>
-          <section>Section 2</section>
-          <section>Section 3</section>
-        </>
-      ),
-    },
-    {
-      id: '6',
-      title: 'Leg 6',
-      component: (
-        <>
-          <select>
-            {remainingOptions3.map((option: Option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <section>Section 1</section>
-          <section>Section 2</section>
-          <section>Section 3</section>
-        </>
-      ),
-    },
+    // {
+    //   id: '5',
+    //   title: 'Leg 5',
+    //   component: (
+    //     <>
+    //       <select>
+    //         {remainingOptions3.map((option: Option) => (
+    //           <option key={option.value} value={option.value}>
+    //             {option.label}
+    //           </option>
+    //         ))}
+    //       </select>
+    //       <section>Section 1</section>
+    //       <section>Section 2</section>
+    //       <section>Section 3</section>
+    //     </>
+    //   ),
+    // },
+    // {
+    //   id: '6',
+    //   title: 'Leg 6',
+    //   component: (
+    //     <>
+    //       <select>
+    //         {remainingOptions3.map((option: Option) => (
+    //           <option key={option.value} value={option.value}>
+    //             {option.label}
+    //           </option>
+    //         ))}
+    //       </select>
+    //       <section>Section 1</section>
+    //       <section>Section 2</section>
+    //       <section>Section 3</section>
+    //     </>
+    //   ),
+    // },
     // {
     //   id: '7',
     //   title: 'Leg 7',
