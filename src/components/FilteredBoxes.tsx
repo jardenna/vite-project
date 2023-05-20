@@ -23,7 +23,6 @@ const FilteredSelectBoxes = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const handleChange1 = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value, name } = event.target;
-    console.log(name, value);
 
     setSelectedOptions([value]);
   };
@@ -31,7 +30,7 @@ const FilteredSelectBoxes = () => {
   const handleChange2 = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value, name } = event.target;
     const x = selectedOptions.slice(0, 1);
-    console.log(name, value);
+
     const y = [...x, value];
 
     setSelectedOptions(y);
@@ -39,7 +38,7 @@ const FilteredSelectBoxes = () => {
 
   const handleChange3 = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value, name } = event.target;
-    console.log(name, value);
+
     const x = selectedOptions.slice(0, 2);
 
     const y = [...x, value];

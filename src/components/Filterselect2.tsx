@@ -28,7 +28,7 @@ const MyComponent: React.FC = () => {
     third: initialArray[2],
     fourth: initialArray[3],
   });
-
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const handleFirstSelectChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -41,7 +41,11 @@ const MyComponent: React.FC = () => {
           (updatedValues as Record<string, string>)[key] = '';
         }
       });
+      const x = selectedOptions.slice(0, 1);
 
+      const y = [...x, value];
+
+      setSelectedOptions(y);
       return { ...updatedValues, first: value };
     });
   };
@@ -57,7 +61,11 @@ const MyComponent: React.FC = () => {
           (updatedValues as Record<string, string>)[key] = '';
         }
       });
+      const x = selectedOptions.slice(0, 2);
 
+      const y = [...x, value];
+
+      setSelectedOptions(y);
       return { ...updatedValues, second: value };
     });
   };
@@ -73,11 +81,21 @@ const MyComponent: React.FC = () => {
           (updatedValues as Record<string, string>)[key] = '';
         }
       });
+      const x = selectedOptions.slice(0, 3);
 
+      const y = [...x, value];
+
+      setSelectedOptions(y);
       return { ...updatedValues, third: value };
     });
   };
-
+  const getFilteredOptions = (index: number): Option[] => {
+    const selectedValues1 = selectedOptions.slice(0, index);
+    const remainingOptions = options.filter(
+      (option) => !selectedValues1.includes(option.value)
+    );
+    return remainingOptions;
+  };
   // Render the selects with event handlers
   return (
     <div>
@@ -92,7 +110,7 @@ const MyComponent: React.FC = () => {
 
       <select value={selectedValues.second} onChange={handleSecondSelectChange}>
         <option value="">Select an option</option>
-        {options.map((option: Option) => (
+        {getFilteredOptions(1).map((option: Option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
@@ -100,7 +118,7 @@ const MyComponent: React.FC = () => {
       </select>
       <select value={selectedValues.third} onChange={handleThirdSelectChange}>
         <option value="">Select an option</option>
-        {options.map((option: Option) => (
+        {getFilteredOptions(2).map((option: Option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
