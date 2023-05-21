@@ -225,17 +225,15 @@ const FilteredSelectBoxes = () => {
   const handleAddLegs = () => setLegsArray((prevIndex) => prevIndex + 1);
   const handleRemoveLegs = () => setLegsArray((prevIndex) => prevIndex - 1);
   return (
-    <div>
-      <div className="grid test1 grid-header">
-        <div className="grid grid-col-5 col-start-2">
-          <div>Departure</div>
-          <div className="col-start-3">Arrival</div>
-        </div>
+    <section>
+      <div className="grid grid-col-5">
+        <div className="col-start-2">Departure</div>
+        <div className="col-start-4">Arrival</div>
       </div>
       {updatedLegs.map((leg, index: number) => (
-        <fieldset key={leg.id} className="grid test1">
+        <fieldset key={leg.id} className="grid grid-col-5">
           <legend>{leg.title}</legend>
-          <div className="grid grid-col-5">{leg.component}</div>
+          {leg.component}
 
           {updatedLegs.length - 1 === index && index !== 0 && (
             <button type="button" onClick={handleRemoveLegs}>
@@ -253,7 +251,7 @@ const FilteredSelectBoxes = () => {
       >
         Add Leg
       </button>
-    </div>
+    </section>
   );
 };
 

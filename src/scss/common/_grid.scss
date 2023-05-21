@@ -3,13 +3,8 @@
   gap: 28px;
 }
 
-.test {
-  grid-template-columns: repeat(5, 1fr);
-  min-width: 700px;
-}
-.test1 {
-  grid-template-columns: 48px repeat(2, 1fr);
-  margin-bottom: 12px;
+.grid-col-5 {
+  grid-template-columns: 48px repeat(5, 1fr);
 }
 
 .col-start-2 {
@@ -18,13 +13,15 @@
 .col-start-3 {
   grid-column-start: 3;
 }
+.col-start-4 {
+  grid-column-start: 4;
+}
 
 .pr-40 {
   padding-right: 40px;
 }
 
 fieldset {
-  margin: 0;
   border: none;
   padding: 0;
 }
