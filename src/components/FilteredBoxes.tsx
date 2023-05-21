@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type Option = {
   value: string;
@@ -42,15 +42,20 @@ const FilteredSelectBoxes = () => {
       ...selectValues,
       [key]: value,
     };
+    const filterFunction = (testOpt: Option[], selected: string) => {
+      const ou = testOpt.filter((a) => a.value !== selected);
+      return ou;
+    };
 
     // Set Options based on filtered previous options
-    const opt2 = options.filter((a) => a.value !== updatedValues.select1Value);
+
+    const opt2 = filterFunction(options, updatedValues.select1Value);
     setoptions2(opt2);
 
-    const opt3 = opt2.filter((a) => a.value !== updatedValues.select2Value);
+    const opt3 = filterFunction(opt2, updatedValues.select2Value);
     setoptions3(opt3);
 
-    const opt4 = opt3.filter((a) => a.value !== updatedValues.select3Value);
+    const opt4 = filterFunction(opt3, updatedValues.select3Value);
     setoptions4(opt4);
 
     // Iterate over each select box
@@ -216,23 +221,23 @@ const FilteredSelectBoxes = () => {
     //   ),
     // },
   ];
-  const test = legs.slice(0, legsArray);
+  const updatedLegs = legs.slice(0, legsArray);
   const handleAddLegs = () => setLegsArray((prevIndex) => prevIndex + 1);
   const handleRemoveLegs = () => setLegsArray((prevIndex) => prevIndex - 1);
   return (
     <div>
       <div className="grid test1 grid-header">
-        <div className="grid test col-start-2">
+        <div className="grid grid-col-5 col-start-2">
           <div>Departure</div>
           <div className="col-start-3">Arrival</div>
         </div>
       </div>
-      {test.map((leg, index: number) => (
+      {updatedLegs.map((leg, index: number) => (
         <fieldset key={leg.id} className="grid test1">
           <legend>{leg.title}</legend>
-          <div className="grid test">{leg.component}</div>
+          <div className="grid grid-col-5">{leg.component}</div>
 
-          {test.length - 1 === index && index !== 0 && (
+          {updatedLegs.length - 1 === index && index !== 0 && (
             <button type="button" onClick={handleRemoveLegs}>
               Delete
             </button>
@@ -244,7 +249,7 @@ const FilteredSelectBoxes = () => {
         onClick={handleAddLegs}
         type="button"
         className="btn btn-primary"
-        disabled={test.length === 6}
+        disabled={updatedLegs.length === 6}
       >
         Add Leg
       </button>
