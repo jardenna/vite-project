@@ -1,7 +1,9 @@
 import FilteredSelectBoxes from './components/FilteredBoxes';
+import DragAndDrop from './components/dragAndDrop/DragAndDrop';
 
 import { Title } from './enums';
 import useDocumentTitle from './hooks/useDocumentTitle';
+import Home from './pages/Home';
 
 function App() {
   useDocumentTitle(Title.Home);
@@ -9,10 +11,12 @@ function App() {
   return (
     <article className="main-container">
       <div className="container">
-        <FilteredSelectBoxes />
+        {/* <FilteredSelectBoxes /> */}
+        <DragAndDrop />
       </div>
     </article>
   );
 }
 
 export default App;
+// MDivvdrB6rLBaKH

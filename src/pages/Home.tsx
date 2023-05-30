@@ -6,35 +6,11 @@ import Header from '../layout/Header';
 
 function Home() {
   useDocumentTitle(Title.Home);
-  const [toastList, setToastList] = useState<any>([]);
-  const list = [
-    {
-      id: 1,
-      title: 'Warning',
-      description: 'This is an error toast component',
-      type: TypesEnum.Danger,
-    },
-    {
-      id: 2,
-      title: 'Success',
-      description: 'This is a success toast component',
-      type: TypesEnum.Success,
-    },
-    {
-      id: 3,
-      title: 'Danger',
-      description: 'This is an error toast component',
-      type: TypesEnum.Danger,
-    },
-  ];
 
   return (
     <article className="main-container">
       <Header />
-      <button type="button" onClick={() => setToastList(list)}>
-        show Toast
-      </button>
-      <Toast toastList={toastList} />
+
       <div className="container">
         <main className="main-content">
           <aside className="aside">
