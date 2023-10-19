@@ -44,12 +44,12 @@ $burgerColorActive: $color-primary;
       margin: 0;
     }
 
-    a {
-      color: $color-primary-link;
-      &.active {
-        color: $color-primary-link-hover;
-      }
-    }
+    // a {
+    //   color: $color-primary-link;
+    //   &.active {
+    //     color: $color-primary-link-hover;
+    //   }
+    // }
 
     @include mQ($small) {
       margin: 20px;

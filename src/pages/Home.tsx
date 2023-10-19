@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import Toast from '../components/toast/Toast';
-import { Title, TypesEnum } from '../enums';
+import { Title } from '../enums';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import Header from '../layout/Header';
 
@@ -19,7 +17,7 @@ function Home() {
               <span className="vertical-line" />
             </span>
             <div>
-              <h1>Images</h1>
+              <h1>Why should we care</h1>
               <div>
                 Seek out exclusions, and use them as opportunities to create new
                 and better experiences.
@@ -32,10 +30,13 @@ function Home() {
 
           <section>
             Bear in mind that a lot of accessibility best practices benefit
-            everyone, not just users with disabilities. For example, lean
-            semantic markup is not only good for screen readers, but it is also
-            fast to load and performant. This benefits everyone, especially
-            those on mobile devices and/or slow connections.
+            everyone, not just users with disabilities.
+            <p>
+              {' '}
+              Lean semantic markup is fast to load and performant. This benefits
+              everyone, especially those on mobile devices and/or slow
+              connections.
+            </p>
           </section>
         </main>
       </div>

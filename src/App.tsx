@@ -12,11 +12,10 @@ function App() {
     <article className="main-container">
       <div className="container">
         {/* <FilteredSelectBoxes /> */}
-        <DragAndDrop />
+        <Home />
       </div>
     </article>
   );
 }
 
 export default App;
-// MDivvdrB6rLBaKH
