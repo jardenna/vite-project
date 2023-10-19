@@ -7,11 +7,12 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'airbnb-typescript',
+    'airbnb/hooks',
+    'prettier',
   ],
   reportUnusedDisableDirectives: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: true,
     tsconfigRootDir: __dirname,
     ecmaVersion: 'latest',
     sourceType: 'module',

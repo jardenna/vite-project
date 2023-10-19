@@ -21,11 +21,26 @@ const FilterComponent: React.FC = () => {
   });
 
   const options: Option[] = [
-    { value: 'apple', label: 'Apple' },
-    { value: 'banana', label: 'Banana' },
-    { value: 'orange', label: 'Orange' },
-    { value: 'peach', label: 'Peach' },
-    { value: 'plum', label: 'Plum' },
+    {
+      value: 'apple',
+      label: 'Apple',
+    },
+    {
+      value: 'banana',
+      label: 'Banana',
+    },
+    {
+      value: 'orange',
+      label: 'Orange',
+    },
+    {
+      value: 'peach',
+      label: 'Peach',
+    },
+    {
+      value: 'plum',
+      label: 'Plum',
+    },
   ];
 
   const handleSelectChange = (key: keyof SelectValues, value: string) => {
@@ -54,7 +69,9 @@ const FilterComponent: React.FC = () => {
     <div>
       <select
         value={selectValues.select1Value}
-        onChange={(e) => handleSelectChange('select1Value', e.target.value)}
+        onChange={(e) => {
+          handleSelectChange('select1Value', e.target.value);
+        }}
       >
         <option value="Select one">Select one</option>
         {options.map((option) => (
@@ -65,7 +82,9 @@ const FilterComponent: React.FC = () => {
       </select>
       <select
         value={selectValues.select2Value}
-        onChange={(e) => handleSelectChange('select2Value', e.target.value)}
+        onChange={(e) => {
+          handleSelectChange('select2Value', e.target.value);
+        }}
       >
         <option value="Select one">Select one</option>
         {options
@@ -78,7 +97,9 @@ const FilterComponent: React.FC = () => {
       </select>
       <select
         value={selectValues.select3Value}
-        onChange={(e) => handleSelectChange('select3Value', e.target.value)}
+        onChange={(e) => {
+          handleSelectChange('select3Value', e.target.value);
+        }}
       >
         <option value="Select one">Select one</option>
         {options
@@ -95,7 +116,9 @@ const FilterComponent: React.FC = () => {
       </select>
       <select
         value={selectValues.select4Value}
-        onChange={(e) => handleSelectChange('select4Value', e.target.value)}
+        onChange={(e) => {
+          handleSelectChange('select4Value', e.target.value);
+        }}
       >
         <option value="Select one">Select one</option>
         {options
