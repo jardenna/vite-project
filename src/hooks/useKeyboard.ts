@@ -1,24 +1,44 @@
-import { KeyboardEvent, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-function useKeyboard(callback: () => void, key: string) {
-  const match = (event: KeyboardEvent<HTMLElement>) =>
-    event.key.toLowerCase() === key.toLowerCase();
+type IsPressed = boolean;
+type EventCode = string;
 
-  const onKeyDown = (event: any) => {
-    if (match(event)) {
-      callback();
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [key]);
-
-  return onKeyDown;
+interface Settings {
+  watchKey: string;
 }
 
-export default useKeyboard;
+function fromEventCode(code: EventCode): string {
+  const prefixRegex = /Key|Digit/gi;
+  return code.replace(prefixRegex, '');
+}
+
+function equal(watchedKey: string, eventCode: EventCode): boolean {
+  return fromEventCode(eventCode).toUpperCase() === watchedKey.toUpperCase();
+}
+
+function usePressObserver({ watchKey }: Settings): IsPressed {
+  const [pressed, setPressed] = useState<IsPressed>(false);
+
+  useEffect(() => {
+    function handlePressStart({ code }: KeyboardEvent): void {
+      if (pressed || !equal(watchKey, code)) return;
+      setPressed(true);
+    }
+
+    function handlePressFinish({ code }: KeyboardEvent): void {
+      if (!pressed || !equal(watchKey, code)) return;
+      setPressed(false);
+    }
+
+    document.addEventListener('keydown', handlePressStart);
+    document.addEventListener('keyup', handlePressFinish);
+
+    return () => {
+      document.removeEventListener('keydown', handlePressStart);
+      document.removeEventListener('keyup', handlePressFinish);
+    };
+  }, [watchKey, pressed, setPressed]);
+
+  return pressed;
+}
+export default usePressObserver;

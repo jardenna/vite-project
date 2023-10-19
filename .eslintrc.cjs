@@ -20,6 +20,8 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    'react/no-unescaped-entities': 0,
+
     'linebreak-style': 0,
     'react/function-component-definition': 'off',
     'react/require-default-props': 'off',

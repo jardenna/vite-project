@@ -47,6 +47,7 @@ const Toast: FC<ToastListProps> = ({
     return () => {
       clearInterval(interval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toastList, autoDelete, autoDeleteTime, list]);
 
   return (
@@ -60,7 +61,9 @@ const Toast: FC<ToastListProps> = ({
           >
             <button
               type="button"
-              onClick={() => handleDeleteToast(toast.id)}
+              onClick={() => {
+                handleDeleteToast(toast.id);
+              }}
               aria-label="Close notification"
             >
               X

@@ -6,11 +6,21 @@ type Option = {
 };
 
 const options: Option[] = [
-  { value: 'apple', label: 'Apple' },
-  { value: 'banana', label: 'Banana' },
-  { value: 'orange', label: 'Orange' },
-  { value: 'peach', label: 'Peach' },
-  { value: 'plum', label: 'Plum' },
+  {
+ value: 'apple', label: 'Apple' 
+},
+  {
+ value: 'banana', label: 'Banana' 
+},
+  {
+ value: 'orange', label: 'Orange' 
+},
+  {
+ value: 'peach', label: 'Peach' 
+},
+  {
+ value: 'plum', label: 'Plum' 
+},
 ];
 
 const MyComponent: React.FC = () => {
@@ -34,7 +44,9 @@ const MyComponent: React.FC = () => {
   ) => {
     const { value } = event.target;
     setSelectedValues((prevValues) => {
-      const updatedValues = { ...prevValues };
+      const updatedValues = {
+ ...prevValues 
+};
 
       Object.keys(updatedValues).forEach((key) => {
         if ((updatedValues as Record<string, string>)[key] === value) {
@@ -46,7 +58,9 @@ const MyComponent: React.FC = () => {
       const y = [...x, value];
 
       setSelectedOptions(y);
-      return { ...updatedValues, first: value };
+      return {
+ ...updatedValues, first: value 
+};
     });
   };
   const handleSecondSelectChange = (
@@ -54,7 +68,9 @@ const MyComponent: React.FC = () => {
   ) => {
     const { value } = event.target;
     setSelectedValues((prevValues) => {
-      const updatedValues = { ...prevValues };
+      const updatedValues = {
+ ...prevValues 
+};
 
       Object.keys(updatedValues).forEach((key) => {
         if ((updatedValues as Record<string, string>)[key] === value) {
@@ -66,7 +82,9 @@ const MyComponent: React.FC = () => {
       const y = [...x, value];
 
       setSelectedOptions(y);
-      return { ...updatedValues, second: value };
+      return {
+ ...updatedValues, second: value 
+};
     });
   };
   const handleThirdSelectChange = (
@@ -74,7 +92,9 @@ const MyComponent: React.FC = () => {
   ) => {
     const { value } = event.target;
     setSelectedValues((prevValues) => {
-      const updatedValues = { ...prevValues };
+      const updatedValues = {
+ ...prevValues 
+};
 
       Object.keys(updatedValues).forEach((key) => {
         if ((updatedValues as Record<string, string>)[key] === value) {
@@ -86,7 +106,9 @@ const MyComponent: React.FC = () => {
       const y = [...x, value];
 
       setSelectedOptions(y);
-      return { ...updatedValues, third: value };
+      return {
+ ...updatedValues, third: value 
+};
     });
   };
   const getFilteredOptions = (index: number): Option[] => {

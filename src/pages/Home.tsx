@@ -1,3 +1,4 @@
+import Headings from '../components/Headings';
 import { Title } from '../enums';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import Header from '../layout/Header';
@@ -16,6 +17,7 @@ function Home() {
               <span className="vertical-line" />
               <span className="vertical-line" />
             </span>
+            <Headings />
             <div>
               <h1>Why should we care</h1>
               <div>

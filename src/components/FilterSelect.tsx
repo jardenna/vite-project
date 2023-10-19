@@ -6,11 +6,26 @@ type Option = {
 };
 
 const options: Option[] = [
-  { value: 'apple', label: 'Apple' },
-  { value: 'banana', label: 'Banana' },
-  { value: 'orange', label: 'Orange' },
-  { value: 'peach', label: 'Peach' },
-  { value: 'plum', label: 'Plum' },
+  {
+    value: 'apple',
+    label: 'Apple',
+  },
+  {
+    value: 'banana',
+    label: 'Banana',
+  },
+  {
+    value: 'orange',
+    label: 'Orange',
+  },
+  {
+    value: 'peach',
+    label: 'Peach',
+  },
+  {
+    value: 'plum',
+    label: 'Plum',
+  },
 ];
 
 const FilterSelect: React.FC = () => {

@@ -6,8 +6,12 @@ const Headings = () => {
     console.log(145);
   };
 
-  const onKeyDown = useKeyboard(onClick, 'Enter');
-
+  const onKeyDown = useKeyboard({
+    watchKey: 'n',
+  });
+  if (onKeyDown) {
+    onClick();
+  }
   return (
     <div>
       <h1>Heading 1</h1>
@@ -36,15 +40,8 @@ const Headings = () => {
       <section>
         <h2>section 2</h2>
         <Button text="Klik her" type="submit" />
-        <div
-          onClick={onClick}
-          role="button"
-          tabIndex={0}
-          onKeyDown={onKeyDown}
-          aria-label="please click here"
-        >
-          Click
-        </div>
+
+        <div aria-label="please click here">Click</div>
       </section>
       <section>
         <h2>section 3</h2>
