@@ -1,4 +1,4 @@
-import useKeyboard from '../hooks/useKeyboard';
+import useKeyPress from '../hooks/useKeyPress';
 import Button from './Button';
 
 const Headings = () => {
@@ -6,12 +6,7 @@ const Headings = () => {
     console.log(145);
   };
 
-  const onKeyDown = useKeyboard({
-    watchKey: 'n',
-  });
-  if (onKeyDown) {
-    onClick();
-  }
+  const test = useKeyPress(onClick, 'Enter');
   return (
     <div>
       <h1>Heading 1</h1>
@@ -40,8 +35,15 @@ const Headings = () => {
       <section>
         <h2>section 2</h2>
         <Button text="Klik her" type="submit" />
-
-        <div aria-label="please click here">Click</div>
+        <div
+          onClick={onClick}
+          role="button"
+          tabIndex={0}
+          onKeyDown={() => test}
+          aria-label="please click here"
+        >
+          Click
+        </div>
       </section>
       <section>
         <h2>section 3</h2>

@@ -9,7 +9,7 @@ function Home() {
   return (
     <article className="main-container">
       <Header />
-
+      <Headings />
       <div className="container">
         <main className="main-content">
           <aside className="aside">
@@ -17,7 +17,7 @@ function Home() {
               <span className="vertical-line" />
               <span className="vertical-line" />
             </span>
-            <Headings />
+
             <div>
               <h1>Why should we care</h1>
               <div>
@@ -34,7 +34,6 @@ function Home() {
             Bear in mind that a lot of accessibility best practices benefit
             everyone, not just users with disabilities.
             <p>
-              {' '}
               Lean semantic markup is fast to load and performant. This benefits
               everyone, especially those on mobile devices and/or slow
               connections.

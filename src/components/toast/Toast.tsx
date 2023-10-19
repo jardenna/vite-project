@@ -47,7 +47,7 @@ const Toast: FC<ToastListProps> = ({
     return () => {
       clearInterval(interval);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, [toastList, autoDelete, autoDeleteTime, list]);
 
   return (

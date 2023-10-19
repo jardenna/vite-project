@@ -6,7 +6,7 @@ function useDocumentTitle(title: Title) {
 
   useEffect(() => {
     setDocTitle((document.title = `A11Y | ${title}`));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, []);
 
   return docTitle;

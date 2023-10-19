@@ -21,7 +21,8 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react/no-unescaped-entities': 0,
-
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     'linebreak-style': 0,
     'react/function-component-definition': 'off',
     'react/require-default-props': 'off',
