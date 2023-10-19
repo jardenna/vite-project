@@ -30,7 +30,7 @@ const MyComponent: React.FC = () => {
   });
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const handleFirstSelectChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const { value } = event.target;
     setSelectedValues((prevValues) => {
@@ -50,7 +50,7 @@ const MyComponent: React.FC = () => {
     });
   };
   const handleSecondSelectChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const { value } = event.target;
     setSelectedValues((prevValues) => {
@@ -70,7 +70,7 @@ const MyComponent: React.FC = () => {
     });
   };
   const handleThirdSelectChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const { value } = event.target;
     setSelectedValues((prevValues) => {
@@ -92,7 +92,7 @@ const MyComponent: React.FC = () => {
   const getFilteredOptions = (index: number): Option[] => {
     const selectedValues1 = selectedOptions.slice(0, index);
     const remainingOptions = options.filter(
-      (option) => !selectedValues1.includes(option.value)
+      (option) => !selectedValues1.includes(option.value),
     );
     return remainingOptions;
   };

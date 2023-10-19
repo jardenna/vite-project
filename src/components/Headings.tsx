@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import useKeyboard from '../hooks/useKeyboard';
 import Button from './Button';
 
@@ -9,10 +8,6 @@ const Headings = () => {
 
   const onKeyDown = useKeyboard(onClick, 'Enter');
 
-  const [hidden, setHidden] = useState(true);
-  const handleShow = () => {
-    setHidden(!hidden);
-  };
   return (
     <div>
       <h1>Heading 1</h1>

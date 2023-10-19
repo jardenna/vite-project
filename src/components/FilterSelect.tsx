@@ -51,7 +51,7 @@ const FilterSelect: React.FC = () => {
   const getFilteredOptions = (index: number): Option[] => {
     const selectedValues = selectedOptions.slice(0, index);
     const remainingOptions = options.filter(
-      (option) => !selectedValues.includes(option.value)
+      (option) => !selectedValues.includes(option.value),
     );
     return remainingOptions;
   };

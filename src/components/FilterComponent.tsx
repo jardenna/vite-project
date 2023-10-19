@@ -85,7 +85,7 @@ const FilterComponent: React.FC = () => {
           .filter(
             (option) =>
               option.value !== selectValues.select1Value &&
-              option.value !== selectValues.select2Value
+              option.value !== selectValues.select2Value,
           )
           .map((option) => (
             <option key={option.value} value={option.value}>
@@ -103,7 +103,7 @@ const FilterComponent: React.FC = () => {
             (option) =>
               option.value !== selectValues.select1Value &&
               option.value !== selectValues.select2Value &&
-              option.value !== selectValues.select3Value
+              option.value !== selectValues.select3Value,
           )
           .map((option) => (
             <option key={option.value} value={option.value}>
