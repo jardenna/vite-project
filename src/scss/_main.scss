@@ -12,7 +12,8 @@ ul {
 }
 
 html,
-body {
+body,
+#root {
   height: 100%;
   width: 100%;
 }
@@ -60,11 +61,10 @@ a {
   font-weight: 700;
 }
 
-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 svg {
   width: 20px;
+}
+
+.img-disabilities {
+  max-width: 800px;
 }

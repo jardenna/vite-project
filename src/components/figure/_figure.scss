@@ -1,0 +1,11 @@
+.figure {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+
+  .figure-heading {
+    margin: 0;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+}

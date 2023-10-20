@@ -67,8 +67,8 @@ const Images: FC = () => (
       <div>
         <Figure>
           <Img
-            imgSrc="./images/hedy.jpg"
-            altText="Hedy Lamarr: Hollywood actress behind the invention of WIFI "
+            src="./images/hedy.jpg"
+            alt="Hedy Lamarr: Hollywood actress behind the invention of WIFI "
           />
 
           <Figcaption>
@@ -91,7 +91,7 @@ const Images: FC = () => (
           </Figcaption>
         </Figure>
         <Figure>
-          <Img imgSrc="./images/family.jpg" altText="We’re family-friendly." />
+          <Img src="./images/family.jpg" alt="We’re family-friendly." />
 
           <Figcaption>
             <h3 className="figure-heading">Our company is family-friendly</h3>
@@ -105,8 +105,8 @@ const Images: FC = () => (
         </Figure>
         <Figure>
           <Img
-            imgSrc="./images/counter-clockwise.jpg"
-            altText="Push the cap down and turn it counter-clockwise (from right to left)"
+            src="./images/counter-clockwise.jpg"
+            alt="Push the cap down and turn it counter-clockwise (from right to left)"
           />
 
           <Figcaption>
@@ -123,7 +123,7 @@ const Images: FC = () => (
           </Figcaption>
         </Figure>
         <Figure>
-          <Img imgSrc="./images/frog.jpg" altText="" />
+          <Img src="./images/frog.jpg" alt="" />
 
           <Figcaption>
             <h3 className="figure-heading">Red-Eyed Tree Frog</h3>

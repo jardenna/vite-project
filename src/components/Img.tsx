@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
 interface ImgProps {
-  imgSrc: string;
-  altText: string;
+  src: string;
+  alt: string;
   className?: string;
 }
 
-const Img: FC<ImgProps> = ({ imgSrc, altText, className }) => (
-  <img src={imgSrc} alt={altText} className={className} />
+const Img: FC<ImgProps> = ({ src, alt, className }) => (
+  <img src={src} alt={alt} className={className} />
 );
 export default Img;
