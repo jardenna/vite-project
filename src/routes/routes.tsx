@@ -4,6 +4,7 @@ import Operable from '../pages/Operable';
 import Perceivable from '../pages/Perceivable';
 import Robust from '../pages/Robust';
 import Understandable from '../pages/Understandable';
+import { Title } from '../enums';
 
 interface IRoutes {
   path: string;
@@ -13,24 +14,24 @@ interface IRoutes {
 }
 const routes: IRoutes[] = [
   {
-    path: 'perceivable',
+    path: Title.Perceivable.toLowerCase(),
     element: <Perceivable />,
-    linkName: 'Perceivable',
+    linkName: Title.Perceivable,
   },
   {
-    path: 'operable',
+    path: Title.Operable.toLowerCase(),
     element: <Operable />,
-    linkName: 'Operable',
+    linkName: Title.Operable,
   },
   {
-    path: 'understandable',
+    path: Title.Understandable.toLowerCase(),
     element: <Understandable />,
-    linkName: 'Understandable',
+    linkName: Title.Understandable,
   },
   {
-    path: 'robust',
+    path: Title.Robust.toLowerCase(),
     element: <Robust />,
-    linkName: 'Robust',
+    linkName: Title.Robust,
   },
 ];
 
