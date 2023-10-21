@@ -31,28 +31,11 @@ function Home() {
         </aside>
 
         <section>
-          Bear in mind that a lot of accessibility best practices benefit
-          everyone, not just users with disabilities.
           <p>
-            Lean semantic markup is fast to load and performant. This benefits
-            everyone, especially those on mobile devices and/or slow
-            connections.
-          </p>
-          <p>
-            A disability arises when a person with a physical or mental
-            impairment experiences barriers in connection with participation in
-            the surrounding community.
-          </p>
-          <p>WHO’s International Classification of Disability (ICF)</p>
-          <p>
-            A little less than 100,000 bone fractures are each year treated in
-            Denmark
-          </p>
-          <p>sundhed.dk</p>
-          <p>
-            "Anyone can experience a disability when the design, the
-            environment, the attitude or the social structure exclude them from
-            participating." - Jutta Treviranus
+            According to WHO the World Health Organization, about 15% living
+            with permanent disabilities. If you included the people who
+            experience temporary and situational disabilities, that number
+            increases to 100%.
           </p>
         </section>
       </div>
@@ -64,9 +47,11 @@ function Home() {
         >
           <Figcaption>
             <p> Permanent, temporary, and situational disabilities</p>
-            <a href="https://inclusive.microsoft.design/">
-              Inclusive Design from the Microsoft Design Toolkit
-            </a>
+            <cite>
+              <a href="https://inclusive.microsoft.design/">
+                Inclusive Design from the Microsoft Design Toolkit
+              </a>
+            </cite>
           </Figcaption>
         </Figure>
       </section>

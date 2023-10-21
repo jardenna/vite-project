@@ -7,7 +7,7 @@ const Header = () => (
       <div className="logo-container">
         <NavLink to="/" className="logo-link">
           <span className="logo">Accessibility</span>
-          <span className="header-tag">A11y</span>
+          <span className="header-tag">a11y</span>
         </NavLink>
       </div>
       <Nav />
