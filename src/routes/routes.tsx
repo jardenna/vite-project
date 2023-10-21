@@ -16,7 +16,6 @@ const routes: IRoutes[] = [
   {
     path: '/',
     element: <Home />,
-
     index: true,
   },
   {

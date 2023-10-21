@@ -4,6 +4,7 @@ export enum Title {
   Operable = 'Operable',
   Understandable = 'Understandable',
   Robust = 'Robust',
+  AlternativeText = 'Alternative Text',
 }
 
 export enum TypesEnum {
