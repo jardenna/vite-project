@@ -44,16 +44,16 @@ $burgerColorActive: $color-primary;
       margin: 0;
     }
 
-    // a {
-    //   color: $color-primary-link;
-    //   &.active {
-    //     color: $color-primary-link-hover;
-    //   }
-    // }
+    a {
+      color: #404040; //Black 75%;
+      &.active {
+        color: #d96500;
+      }
+    }
 
     @include mQ($small) {
       margin: 20px;
-      display: block;
+      flex-direction: column;
     }
   }
 }

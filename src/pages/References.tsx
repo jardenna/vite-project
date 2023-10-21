@@ -42,6 +42,28 @@ function References() {
           refactoring the component.
         </div>
       </section>
+      <section>
+        Myth number two, making digital assets accessible is costly and time
+        Myth number three Only a small percentage of the global population is
+        living with a disability. OK, according to WHO the World Health
+        Organization, about 15% of the global population is living with some
+        form of disability, but they only take into account those living with
+        permanent disabilities. If you included the people who in who experience
+        temporary and situational disabilities, that number jumps to 100%.
+        Digital accessibility helps more people than you might realize, like
+        when you design accessibly for a person with some form of
+        colorblindness, you're also helping people who have aging eyes or who
+        are experiencing screen glare. You know, when you design for someone
+        with permanent cognitive impairment, you're making the experience easier
+        for your coworker who had a few too many last night and might be moving
+        a bit slow this morning when you have tested for the proper tab order.
+        For people who can't use a mouse due to maybe hand tremors, you're also
+        helping out the middle school kid who broke their dominant arm designed
+        for the 15%, and you create better experiences for everyone.
+        <a href="https://www.youtube.com/watch?v=wt53toyNyPI&list=PLmPWmEK8TipbGYGtA8sC-1SXwjyVb1PPB&index=4">
+          Accessible Design Jam
+        </a>
+      </section>
     </section>
   );
 }

@@ -38,16 +38,19 @@ h1 {
   font-size: 36px;
   font-weight: 100;
   margin-bottom: 10px;
+  @include mQ($small) {
+    font-size: inherit;
+  }
 }
 img {
   width: 100%;
 }
 
 a {
-  color: $color-primary-btn;
+  color: #404040; //Black 75%;
   text-decoration: none;
 
-  &:focus {
+  &:focus-visible {
     outline: var(--focus);
     border: none;
   }

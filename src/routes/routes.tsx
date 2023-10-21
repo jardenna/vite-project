@@ -5,6 +5,7 @@ import Perceivable from '../pages/Perceivable';
 import Robust from '../pages/Robust';
 import Understandable from '../pages/Understandable';
 import { Title } from '../enums';
+import Home from '../pages/Home';
 
 interface IRoutes {
   path: string;
@@ -13,6 +14,12 @@ interface IRoutes {
   linkName?: string;
 }
 const routes: IRoutes[] = [
+  {
+    path: '/',
+    element: <Home />,
+
+    index: true,
+  },
   {
     path: Title.Perceivable.toLowerCase(),
     element: <Perceivable />,

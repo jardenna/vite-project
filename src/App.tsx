@@ -14,11 +14,6 @@ function App() {
         fallbackElement={<p>Initial Load...</p>}
       />
     </React.StrictMode>
-    // <article className="main-container">
-    //   <div className="container">
-    //     <Home />
-    //   </div>
-    // </article>
   );
 }
 

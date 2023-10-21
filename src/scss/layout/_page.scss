@@ -48,23 +48,30 @@
   gap: 50px;
   flex-direction: column;
 }
-.main-header {
-  margin-top: 40px;
-  margin-bottom: 20px;
-
-  .logo-container {
-    position: relative;
-    width: fit-content;
-  }
+.logo-container {
+  width: fit-content;
   .logo {
     font-size: 4.125rem;
     font-weight: bold;
+    @include mQ($small) {
+      font-size: inherit;
+    }
+  }
+  .logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
   .header-tag {
-    position: absolute;
-    right: 39px;
-    top: 67px;
+    position: relative;
+    top: -16px;
+    right: 40px;
     font-size: 36px;
+    @include mQ($small) {
+      font-size: 8px;
+      top: -4px;
+      right: 10px;
+    }
   }
 }
 .main-content {
