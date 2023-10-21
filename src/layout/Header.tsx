@@ -8,6 +8,12 @@ const Header = () => (
         <NavLink to="/" className="logo-link">
           <span className="logo">Accessibility</span>
           <span className="header-tag">a11y</span>
+          <search>
+            <input type="text" name="" id="" />
+            <button type="submit" onClick={() => console.log(34)}>
+              search
+            </button>
+          </search>
         </NavLink>
       </div>
       <Nav />

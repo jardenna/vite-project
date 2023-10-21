@@ -4,6 +4,9 @@
 
 :root {
   --focus: 1px dotted #000000;
+  @media (prefers-contrast: more) {
+    --focus: 2px solid #1b236b;
+  }
 }
 
 ul {
@@ -33,6 +36,25 @@ body {
   }
 }
 
+.opacity {
+  opacity: 0.4;
+}
+
+.animation {
+  animation: vibrate 0.3s linear infinite both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animation {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-transparency) {
+  .opacity {
+    opacity: 0.8;
+  }
+}
 h1 {
   margin: 0;
   font-size: 36px;
