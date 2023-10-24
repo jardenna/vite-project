@@ -5,6 +5,21 @@ export enum Title {
   Understandable = 'Understandable',
   Robust = 'Robust',
   AlternativeText = 'Alternative Text',
+  TimebasedMedia = 'Time-based Media',
+  Adaptable = 'Adaptable',
+  Distinguishable = 'Distinguishable',
+}
+
+export enum Path {
+  Home = 'home',
+  Perceivable = 'perceivable',
+  Operable = 'operable',
+  Understandable = 'understandable',
+  Robust = 'robust',
+  Alt = 'alt',
+  TimebasedMedia = 'media',
+  Adaptable = 'adaptable',
+  Distinguishable = 'distinguishable',
 }
 
 export enum TypesEnum {

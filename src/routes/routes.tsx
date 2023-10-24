@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
 import Operable from '../pages/Operable';
-import Perceivable from '../pages/Perceivable';
+import Perceivable from '../pages/percievable/Perceivable';
 import Robust from '../pages/Robust';
 import Understandable from '../pages/Understandable';
-import { Title } from '../enums';
+import { Path, Title } from '../enums';
 import Home from '../pages/Home';
+import AlternativeText from '../pages/percievable/AlternativeText';
 
 interface IRoutes {
   path: string;
@@ -12,6 +13,7 @@ interface IRoutes {
   index?: boolean;
   linkName?: string;
 }
+
 const routes: IRoutes[] = [
   {
     path: '/',
@@ -19,22 +21,27 @@ const routes: IRoutes[] = [
     index: true,
   },
   {
-    path: Title.Perceivable.toLowerCase(),
+    path: Path.Perceivable,
     element: <Perceivable />,
     linkName: Title.Perceivable,
   },
   {
-    path: Title.Operable.toLowerCase(),
+    path: `${Path.Perceivable}/${Path.Alt}`,
+    element: <AlternativeText />,
+    linkName: Title.AlternativeText,
+  },
+  {
+    path: Path.Operable,
     element: <Operable />,
     linkName: Title.Operable,
   },
   {
-    path: Title.Understandable.toLowerCase(),
+    path: Path.Understandable,
     element: <Understandable />,
     linkName: Title.Understandable,
   },
   {
-    path: Title.Robust.toLowerCase(),
+    path: Path.Robust,
     element: <Robust />,
     linkName: Title.Robust,
   },
