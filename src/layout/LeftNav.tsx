@@ -10,9 +10,20 @@ const LeftNav: FC<LeftNavProps> = () => {
   return (
     <div>
       {pathName.includes(Path.Perceivable) && (
-        <NavLink to={`${Path.Perceivable}/${Path.Alt}`}>
-          Alternative text
-        </NavLink>
+        <>
+          <NavLink to={`${Path.Perceivable}/${Path.Alt}`}>
+            Alternative text
+          </NavLink>
+          <NavLink to={`${Path.Perceivable}/${Path.TimebasedMedia}`}>
+            Time-based Media
+          </NavLink>
+          <NavLink to={`${Path.Perceivable}/${Path.Adaptable}`}>
+            Adaptable
+          </NavLink>
+          <NavLink to={`${Path.Perceivable}/${Path.Distinguishable}`}>
+            Distinguishable
+          </NavLink>
+        </>
       )}
     </div>
   );

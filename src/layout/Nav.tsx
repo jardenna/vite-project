@@ -7,7 +7,7 @@ const Nav: FC = () => (
     <ul className="nav-container">
       {routes.map(
         (route) =>
-          route.linkName && (
+          route.headerLink && (
             <li className="nav-item" key={route.path}>
               <NavLink to={route.path}>{route.linkName}</NavLink>
             </li>
