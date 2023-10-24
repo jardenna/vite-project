@@ -1,31 +1,27 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import useLocationName from '../hooks/useLocationName';
+import perceivableLinks from '../routes/perceivableLinks';
 import { Path } from '../enums';
 
 interface LeftNavProps {}
 
 const LeftNav: FC<LeftNavProps> = () => {
   const pathName = useLocationName();
+
   return (
-    <div>
-      {pathName.includes(Path.Perceivable) && (
-        <>
-          <NavLink to={`${Path.Perceivable}/${Path.Alt}`}>
-            Alternative text
+    <>
+      {pathName.includes(Path.Perceivable) &&
+        perceivableLinks.map((perceivableLink) => (
+          <NavLink
+            key={perceivableLink.path}
+            to={`${Path.Perceivable}/${perceivableLink.path}`}
+          >
+            {perceivableLink.title}
           </NavLink>
-          <NavLink to={`${Path.Perceivable}/${Path.TimebasedMedia}`}>
-            Time-based Media
-          </NavLink>
-          <NavLink to={`${Path.Perceivable}/${Path.Adaptable}`}>
-            Adaptable
-          </NavLink>
-          <NavLink to={`${Path.Perceivable}/${Path.Distinguishable}`}>
-            Distinguishable
-          </NavLink>
-        </>
-      )}
-    </div>
+        ))}
+      {pathName.includes(Path.Operable) && <div>hello</div>}
+    </>
   );
 };
 export default LeftNav;

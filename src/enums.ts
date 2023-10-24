@@ -8,6 +8,13 @@ export enum Title {
   TimebasedMedia = 'Time-based Media',
   Adaptable = 'Adaptable',
   Distinguishable = 'Distinguishable',
+  Keyboard = 'Keyboard Accessible',
+  EnoughTime = 'Enough Time',
+  Seizures = 'Seizures',
+  Navigable = 'Navigable',
+  Readable = 'Readable',
+  Predictable = 'Predictable',
+  InputAssistance = 'Input Assistance',
 }
 
 export enum Path {
@@ -20,6 +27,13 @@ export enum Path {
   TimebasedMedia = 'media',
   Adaptable = 'adaptable',
   Distinguishable = 'distinguishable',
+  Keyboard = 'keyboard',
+  EnoughTime = 'time',
+  Seizures = 'seizures',
+  Navigable = 'navigable',
+  Readable = 'readable',
+  Predictable = 'predictable',
+  InputAssistance = 'input-assistance',
 }
 
 export enum TypesEnum {
