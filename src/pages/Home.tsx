@@ -7,38 +7,36 @@ function Home() {
   useDocumentTitle(Title.Home);
 
   return (
-    <main>
-      <div className="container">
-        <aside className="aside">
-          <span className="vertical-line-container">
-            <span className="vertical-line" />
-            <span className="vertical-line" />
-          </span>
+    <>
+      <aside className="aside">
+        <span className="vertical-line-container">
+          <span className="vertical-line" />
+          <span className="vertical-line" />
+        </span>
 
+        <div>
+          <h1>Why should we care</h1>
           <div>
-            <h1>Why should we care</h1>
-            <div>
-              Anyone can experience a disability when the design, the
-              environment, the attitude or the social structure exclude them
-              from participating.
-              <cite>
-                <a href="https://www2.ocadu.ca/bio/jutta-treviranus">
-                  Jutta Treviranus
-                </a>
-              </cite>
-            </div>
+            Anyone can experience a disability when the design, the environment,
+            the attitude or the social structure exclude them from
+            participating.
+            <cite>
+              <a href="https://www2.ocadu.ca/bio/jutta-treviranus">
+                Jutta Treviranus
+              </a>
+            </cite>
           </div>
-        </aside>
+        </div>
+      </aside>
 
-        <section>
-          <p>
-            According to WHO the World Health Organization, about 15% living
-            with permanent disabilities. If you included the people who
-            experience temporary and situational disabilities, that number
-            increases to 100%.
-          </p>
-        </section>
-      </div>
+      <section>
+        <p>
+          According to WHO the World Health Organization, about 15% living with
+          permanent disabilities. If you included the people who experience
+          temporary and situational disabilities, that number increases to 100%.
+        </p>
+      </section>
+
       <section>
         <Figure
           src="./images/spectrumDisability.jpg"
@@ -55,7 +53,7 @@ function Home() {
           </Figcaption>
         </Figure>
       </section>
-    </main>
+    </>
   );
 }
 export default Home;

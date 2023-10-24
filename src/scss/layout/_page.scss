@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   padding: 20px;
   margin: 0 auto;
   display: flex;
@@ -45,12 +45,14 @@
 }
 
 .main-content {
-  display: flex;
-  gap: 50px;
-  flex-direction: column;
+  max-width: 800px;
+  line-height: 24px;
 }
 .logo-container {
   width: fit-content;
+  a {
+    color: inherit;
+  }
   .logo {
     font-size: 4.125rem;
     font-weight: bold;
@@ -75,10 +77,6 @@
       right: 10px;
     }
   }
-}
-.main-content {
-  flex-grow: 1;
-  line-height: 22px;
 }
 
 .main-footer {
