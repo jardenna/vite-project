@@ -1,16 +1,16 @@
 import { Path, Title } from '../enums';
 
-interface LeftLinks {
+interface ILeftLinks {
   path: Path;
   title: Title;
 }
 
-interface ILeft {
-  perceivableLinks: LeftLinks[];
-  operableLinks: LeftLinks[];
-  understandableLinks: LeftLinks[];
+interface IMenuRoutes {
+  perceivableLinks: ILeftLinks[];
+  operableLinks: ILeftLinks[];
+  understandableLinks: ILeftLinks[];
 }
-export const left: ILeft = {
+const leftMenuRoutes: IMenuRoutes = {
   perceivableLinks: [
     {
       path: Path.Alt,
@@ -62,23 +62,5 @@ export const left: ILeft = {
     },
   ],
 };
-const perceivableLinks: LeftLinks[] = [
-  {
-    path: Path.Alt,
-    title: Title.AlternativeText,
-  },
-  {
-    path: Path.TimebasedMedia,
-    title: Title.TimebasedMedia,
-  },
-  {
-    path: Path.Adaptable,
-    title: Title.Adaptable,
-  },
-  {
-    path: Path.Distinguishable,
-    title: Title.Distinguishable,
-  },
-];
 
-export default perceivableLinks;
+export default leftMenuRoutes;

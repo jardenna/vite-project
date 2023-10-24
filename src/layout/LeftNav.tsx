@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import useLocationName from '../hooks/useLocationName';
-import perceivableLinks from '../routes/perceivableLinks';
+import leftMenuRoutes from '../routes/perceivableLinks';
 import { Path } from '../enums';
 
 interface LeftNavProps {}
@@ -12,15 +12,23 @@ const LeftNav: FC<LeftNavProps> = () => {
   return (
     <>
       {pathName.includes(Path.Perceivable) &&
-        perceivableLinks.map((perceivableLink) => (
-          <NavLink
-            key={perceivableLink.path}
-            to={`${Path.Perceivable}/${perceivableLink.path}`}
-          >
-            {perceivableLink.title}
+        leftMenuRoutes.perceivableLinks.map((link) => (
+          <NavLink key={link.path} to={`${Path.Perceivable}/${link.path}`}>
+            {link.title}
           </NavLink>
         ))}
-      {pathName.includes(Path.Operable) && <div>hello</div>}
+      {pathName.includes(Path.Operable) &&
+        leftMenuRoutes.operableLinks.map((link) => (
+          <NavLink key={link.path} to={`${Path.Operable}/${link.path}`}>
+            {link.title}
+          </NavLink>
+        ))}
+      {pathName.includes(Path.Understandable) &&
+        leftMenuRoutes.understandableLinks.map((link) => (
+          <NavLink key={link.path} to={`${Path.Operable}/${link.path}`}>
+            {link.title}
+          </NavLink>
+        ))}
     </>
   );
 };
