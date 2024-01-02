@@ -12,15 +12,21 @@ const Layout: FC<LayoutProps> = () => {
   return (
     <article className="main-container">
       <Header />
-      <main className="container">
-        {pathName !== '/' && (
-          <aside>
-            <LeftNav />
-          </aside>
-        )}
-        <div className="main-content">
-          <Outlet />
-        </div>
+      <main className=" test">
+        <section>
+          <article className="content-container">
+            <div className="container">
+              {pathName !== '/' && (
+                <aside>
+                  <LeftNav />
+                </aside>
+              )}
+              <div className="main-content">
+                <Outlet />
+              </div>
+            </div>
+          </article>
+        </section>
       </main>
       <Footer />
     </article>

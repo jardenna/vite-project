@@ -34,6 +34,7 @@ $burgerColorActive: $color-primary;
     color: #404040;
     position: relative;
     display: flex;
+    font-family: $font-secondary;
 
     &.active {
       color: #d96500;
