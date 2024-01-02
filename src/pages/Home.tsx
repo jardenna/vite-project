@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Toast from '../components/toast/Toast';
+import Toast, {  ToastProps } from '../components/toast/Toast';
 import { Title, TypesEnum } from '../enums';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 import Header from '../layout/Header';
 
 function Home() {
   useDocumentTitle(Title.Home);
-  const [toastList, setToastList] = useState<any>([]);
+  const [toastList, setToastList] = useState<ToastProps[]>([]);
   const list = [
     {
       id: 1,

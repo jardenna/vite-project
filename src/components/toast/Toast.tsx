@@ -4,7 +4,7 @@ import { TypesEnum } from '../../enums';
 import './toast.scss';
 import Portal from '../Portal';
 
-interface ToastProps {
+export interface ToastProps {
   id: number;
   title: string;
   description: string;
