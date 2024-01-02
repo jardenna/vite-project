@@ -1,32 +1,35 @@
-import { FC, useEffect, useState } from 'react';
-import { useParams } from "react-router-dom"
+import { FC } from 'react';
+import { useParams } from 'react-router-dom';
+import { IVans } from './data';
 
 interface VanDetailsProps {
- 
+  vans: IVans[];
 }
-const VanDetails: FC<VanDetailsProps> = () => {
-    const params = useParams()
-    const [van, setVan] = useState<any>(null)
 
-    useEffect(() => {
-        fetch(`/api/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => setVan(data.vans))
-    }, [params.id])
-    
-    return  <div className="van-detail-container">
-            {van ? (
-                <div className="van-detail">
-         
-                    <i className={`van-type ${van.type} selected`}>
-                        {van.type}
-                    </i>
-                    <h2>{van.name}</h2>
-                    <p className="van-price"><span>${van.price}</span>/day</p>
-                    <p>{van.description}</p>
-                    <button type="button" className="link-button">Rent this van</button>
-                </div>
-            ) : <h2>Loading...</h2>}
-        </div> 
+const VanDetails: FC<VanDetailsProps> = ({ vans }) => {
+  const { id } = useParams();
+  const selectedVan = vans.find((van) => van.id === id);
+  return (
+    <div className="van-detail-container">
+      {selectedVan ? (
+        <div className="van-detail">
+          <img src={selectedVan.imageUrl} alt={selectedVan.name} />
+          <i className={`van-type ${selectedVan.type} selected`}>
+            {selectedVan.type}
+          </i>
+          <h2>{selectedVan.name}</h2>
+          <p className="van-price">
+            <span>${selectedVan.price}</span>/day
+          </p>
+          <p>{selectedVan.description}</p>
+          <button type="button" className="link-button">
+            Rent this van
+          </button>
+        </div>
+      ) : (
+        <h2>Loading...</h2>
+      )}
+    </div>
+  );
 };
 export default VanDetails;
