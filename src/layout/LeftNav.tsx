@@ -13,8 +13,8 @@ const LeftNav: FC<LeftNavProps> = () => {
     <ul className="left-nav">
       {pathName.includes(Path.Perceivable) &&
         leftMenuRoutes.perceivableLinks.map((link) => (
-          <li className="nav-item">
-            <NavLink key={link.path} to={`${Path.Perceivable}/${link.path}`}>
+          <li className="nav-item" key={link.path}>
+            <NavLink to={`${Path.Perceivable}/${link.path}`}>
               {link.title}
             </NavLink>
           </li>
