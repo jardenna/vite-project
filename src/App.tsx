@@ -33,8 +33,8 @@ function App() {
             <Route path="income" element={<Income />} />
             <Route path="vans" element={<Hostvans vans={vans} />} />
             <Route path="vans/:id" element={<HostVanDetail vans={vans} />}>
-              <Route index element={<HostVanInfo vans={vans} />} />
-              <Route path="photo" element={<HostVanPhoto vans={vans} />} />
+              <Route index element={<HostVanInfo />} />
+              <Route path="photo" element={<HostVanPhoto />} />
               <Route path="pricing" element={<HostVanPricing />} />
             </Route>
 

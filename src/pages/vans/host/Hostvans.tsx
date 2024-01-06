@@ -11,11 +11,7 @@ const Hostvans: FC<VansProps> = ({ vans }) => {
   const hostVans = vans.filter((a) => a.hostId === hostId);
 
   return hostVans.map((van) => (
-    <Link
-      to={`/host/vans/${van.id}`}
-      key={van.id}
-      className="host-van-link-wrapper"
-    >
+    <Link to={van.id} key={van.id} className="host-van-link-wrapper">
       <div className="host-van-single" key={van.id}>
         <img src={van.imageUrl} alt={`${van.name}`} />
         <div className="host-van-info">

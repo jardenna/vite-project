@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { IVans } from './data';
 
 interface VanDetailsProps {
@@ -8,9 +8,14 @@ interface VanDetailsProps {
 
 const VanDetails: FC<VanDetailsProps> = ({ vans }) => {
   const { id } = useParams();
+  const location = useLocation();
+  const filter = location.state?.filter || '';
   const selectedVan = vans.find((van) => van.id === id);
   return (
     <div className="van-detail-container">
+      <Link to={`..${filter}`} className="back-button" relative="path">
+        &larr; <span>Back to all vans</span>
+      </Link>
       {selectedVan ? (
         <div className="van-detail">
           <img src={selectedVan.imageUrl} alt={selectedVan.name} />

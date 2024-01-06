@@ -19,6 +19,13 @@ body {
   scrollbar-width: none;
 }
 
+button:disabled {
+  background-color: #aaaaaa;
+}
+button.selected {
+  background-color: #b97d0d;
+}
+
 img {
   width: 100%;
 }
@@ -231,10 +238,6 @@ footer {
   outline: none;
 }
 
-.van-type.selected {
-  color: #ffead0;
-}
-
 .van-type.simple:hover,
 .van-type.simple.selected {
   background-color: #e17654;
@@ -274,9 +277,6 @@ i[class*='van-type-'] {
 .van-detail-container .back-button {
   color: black;
   text-decoration: none;
-}
-
-.van-detail-container .back-button:visited {
 }
 
 .van-detail-container .back-button span {
