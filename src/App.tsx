@@ -8,10 +8,10 @@ import Layout from './layout/Layout';
 import Income from './pages/vans/host/Income';
 import Review from './pages/vans/host/Review';
 import HostLayout from './layout/HostLayout';
-import Dashboard from './pages/vans/host/Dashboard';
+import DashboardLayout from './layout/DashboardLayout';
 import Vans from './pages/vans/Vans';
 import Hostvans from './pages/vans/host/Hostvans';
-import HostVanDetail from './pages/vans/host/HostVanDetail';
+import HostVanDetailLayout from './layout/HostVanDetailLayout';
 import vans from './pages/vans/data';
 import HostVanInfo from './pages/vans/host/HostVanInfo';
 import HostVanPhoto from './pages/vans/host/HostVanPhoto';
@@ -26,13 +26,16 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="vans" element={<Vans vans={vans} />} />
-          <Route path="/vans/:id" element={<VanDetails vans={vans} />} />
+          <Route path="vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetails />} />
           <Route path="/host" element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
+            <Route index element={<DashboardLayout />} />
             <Route path="income" element={<Income />} />
-            <Route path="vans" element={<Hostvans vans={vans} />} />
-            <Route path="vans/:id" element={<HostVanDetail vans={vans} />}>
+            <Route path="vans" element={<Hostvans />} />
+            <Route
+              path="vans/:id"
+              element={<HostVanDetailLayout vans={vans} />}
+            >
               <Route index element={<HostVanInfo />} />
               <Route path="photo" element={<HostVanPhoto />} />
               <Route path="pricing" element={<HostVanPricing />} />

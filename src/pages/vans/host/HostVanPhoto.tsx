@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useCurrentVan } from './HostVanDetail';
+import { useCurrentVan } from '../../../layout/HostVanDetailLayout';
 
 interface HostVanPhotoProps {}
 const HostVanPhoto: FC<HostVanPhotoProps> = () => {

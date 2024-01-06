@@ -1,16 +1,13 @@
 import { FC } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { IVans } from './data';
+import { useGetVans } from '../../layout/Layout';
 
-interface VanDetailsProps {
-  vans: IVans[];
-}
-
-const VanDetails: FC<VanDetailsProps> = ({ vans }) => {
+const VanDetails: FC = () => {
+  const { vans } = useGetVans();
   const { id } = useParams();
   const location = useLocation();
   const filter = location.state?.filter || '';
-  const selectedVan = vans.find((van) => van.id === id);
+  const selectedVan = vans?.find((van) => van.id === id);
   return (
     <div className="van-detail-container">
       <Link to={`..${filter}`} className="back-button" relative="path">

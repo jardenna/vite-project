@@ -1,16 +1,14 @@
 /* eslint-disable arrow-body-style */
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IVans } from '../data';
+import { useGetVans } from '../../../layout/Layout';
 
-interface VansProps {
-  vans: IVans[];
-}
-const Hostvans: FC<VansProps> = ({ vans }) => {
+const Hostvans: FC = () => {
   const hostId = '123';
-  const hostVans = vans.filter((a) => a.hostId === hostId);
+  const { vans } = useGetVans();
+  const hostVans = vans?.filter((a) => a.hostId === hostId);
 
-  return hostVans.map((van) => (
+  return hostVans?.map((van) => (
     <Link to={van.id} key={van.id} className="host-van-link-wrapper">
       <div className="host-van-single" key={van.id}>
         <img src={van.imageUrl} alt={`${van.name}`} />

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useCurrentVan } from './HostVanDetail';
+import { useCurrentVan } from '../../../layout/HostVanDetailLayout';
 
 interface HostVanInfoProps {}
 const HostVanInfo: FC<HostVanInfoProps> = () => {

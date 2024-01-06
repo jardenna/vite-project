@@ -1,15 +1,14 @@
 import { FC } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { IVans, VanType } from './data';
+import { VanType } from './data';
+import { useGetVans } from '../../layout/Layout';
 
-interface VansProps {
-  vans: IVans[];
-}
-const Vans: FC<VansProps> = ({ vans }) => {
+const Vans: FC = () => {
+  const { vans } = useGetVans();
   const [searchParams, setSearchParams] = useSearchParams();
   const vansFromParams = searchParams.get('type');
   const filteredVans = vansFromParams
-    ? vans.filter((van) => van.type.toLowerCase() === vansFromParams)
+    ? vans?.filter((van) => van.type.toLowerCase() === vansFromParams)
     : vans;
 
   // Function so that the prev params doesn't get overwritten
@@ -69,7 +68,7 @@ const Vans: FC<VansProps> = ({ vans }) => {
         </button>
       </div>
       <div className="van-list">
-        {filteredVans.map((van) => (
+        {filteredVans?.map((van) => (
           <div key={van.id} className="van-tile">
             <Link to={van.id} state={{ filter: `?${searchParams.toString()}` }}>
               <div className="van-info">
