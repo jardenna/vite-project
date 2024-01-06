@@ -43,6 +43,7 @@ function App() {
 
             <Route path="reviews" element={<Review />} />
           </Route>
+          <Route path="*" element={<h1>Page not found</h1>} />
         </Route>
       </Routes>
     </BrowserRouter>
