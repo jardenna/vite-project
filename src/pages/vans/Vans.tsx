@@ -70,7 +70,13 @@ const Vans: FC = () => {
       <div className="van-list">
         {filteredVans?.map((van) => (
           <div key={van.id} className="van-tile">
-            <Link to={van.id} state={{ filter: `?${searchParams.toString()}` }}>
+            <Link
+              to={van.id}
+              state={{
+                filter: `?${searchParams.toString()}`,
+                type: vansFromParams,
+              }}
+            >
               <div className="van-info">
                 <img src={van.imageUrl} alt={van.name} />
                 <h3>{van.name}</h3>

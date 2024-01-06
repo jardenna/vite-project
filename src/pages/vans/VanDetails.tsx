@@ -7,11 +7,13 @@ const VanDetails: FC = () => {
   const { id } = useParams();
   const location = useLocation();
   const filter = location.state?.filter || '';
+  const type = location.state?.type || 'all';
   const selectedVan = vans?.find((van) => van.id === id);
+
   return (
     <div className="van-detail-container">
       <Link to={`..${filter}`} className="back-button" relative="path">
-        &larr; <span>Back to all vans</span>
+        &larr; <span>Back to {type} vans</span>
       </Link>
       {selectedVan ? (
         <div className="van-detail">
