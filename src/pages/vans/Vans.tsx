@@ -1,11 +1,31 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { VanType } from './data';
-import { useGetVans } from '../../layout/Layout';
+import { VanType, IVans } from './data';
+import { getVans } from '../../api';
 
 const Vans: FC = () => {
-  const { vans } = useGetVans();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [vans, setVans] = useState<IVans[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getVans();
+
+        setVans(data);
+      } catch (err: any) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadVans();
+  }, []);
+
   const vansFromParams = searchParams.get('type');
   const filteredVans = vansFromParams
     ? vans?.filter((van) => van.type.toLowerCase() === vansFromParams)
@@ -22,6 +42,13 @@ const Vans: FC = () => {
       return prevParams;
     });
   };
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>There was an error</h1>;
+  }
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>

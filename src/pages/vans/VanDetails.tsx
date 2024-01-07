@@ -1,9 +1,8 @@
 import { FC } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { useGetVans } from '../../layout/Layout';
+import vans from './data';
 
 const VanDetails: FC = () => {
-  const { vans } = useGetVans();
   const { id } = useParams();
   const location = useLocation();
   const filter = location.state?.filter || '';

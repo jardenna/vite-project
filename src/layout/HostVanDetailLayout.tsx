@@ -6,14 +6,11 @@ import {
   useOutletContext,
   useParams,
 } from 'react-router-dom';
-import { IVans } from '../pages/vans/data';
+import vans, { IVans } from '../pages/vans/data';
 
-interface HostVanDetailProps {
-  vans: IVans[];
-}
 type ContextType = { currentVan: IVans | null };
 
-const HostVanDetailLayout: FC<HostVanDetailProps> = ({ vans }) => {
+const HostVanDetailLayout: FC = () => {
   const { id } = useParams();
 
   const currentVan = vans.find((van) => van.id === id);

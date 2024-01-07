@@ -1,13 +1,10 @@
 import { FC } from 'react';
-import { NavLink, Outlet, useOutletContext } from 'react-router-dom';
-import vans, { IVans } from '../pages/vans/data';
+import { NavLink, Outlet } from 'react-router-dom';
 
-interface HostLayoutProps {}
-type ContextType = { vans: IVans[] | null };
 // <NavLink to="." end> to="." = /host. It means to stay in this directory,
 // end = do not apply style for active link
 
-const HostLayout: FC<HostLayoutProps> = () => (
+const HostLayout: FC = () => (
   <div>
     <nav>
       <NavLink to="." end>
@@ -17,11 +14,8 @@ const HostLayout: FC<HostLayoutProps> = () => (
       <NavLink to="income">Income</NavLink>
       <NavLink to="reviews">Reviews</NavLink>
     </nav>
-    <Outlet context={{ vans } satisfies ContextType} />
+    <Outlet />
   </div>
 );
 
-export function useGetVans() {
-  return useOutletContext<ContextType>();
-}
 export default HostLayout;
