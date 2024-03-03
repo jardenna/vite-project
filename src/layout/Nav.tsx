@@ -2,11 +2,13 @@ import { FC } from 'react';
 
 const Nav: FC = () => (
   <nav className="main-nav">
-    <span>WCAG Principles I</span>
+    <span>WCAG Principles</span>
+    <span className="main-nav-seperator" />
     <ul className="nav-container">
-      <li className="nav-item">Home</li>
-      <li className="nav-item">Images</li>
-      <li className="nav-item">Contact</li>
+      <li className="nav-item">Perceivable</li>
+      <li className="nav-item">Operable</li>
+      <li className="nav-item">Understandable</li>
+      <li className="nav-item">Robust</li>
     </ul>
   </nav>
 );

@@ -3,10 +3,10 @@ import Nav from './Nav';
 const Header = () => (
   <header className="main-header">
     <div className="container">
-      <section className="logo-container">
+      <article className="logo-container container">
         <div className="logo">Accessibility </div>
         <span className="header-tag">A11y</span>
-      </section>
+      </article>
 
       <Nav />
     </div>

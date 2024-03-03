@@ -1,12 +1,11 @@
 .container {
-  max-width: 1200px;
+  max-width: sizeRem(1200);
   margin: 0 auto;
   display: flex;
   padding: 0 14px;
 }
 
 .main-content-container {
-  display: flex;
   flex-grow: 1;
   gap: 30px;
 }
@@ -19,13 +18,16 @@
 
 .aside {
   display: flex;
-  line-height: 22px;
+  max-width: sizeRem(420);
+  font-size: sizeRem(28);
+  margin-bottom: 10px;
+  font-family: neue_haas_grotesk_disp55roman;
 
   .vertical-line-container {
-    width: 56px;
+    width: sizeRem(136);
     display: flex;
     flex-direction: column;
-    height: 160px;
+    height: sizeRem(170);
     margin-right: 20px;
     position: relative;
   }
@@ -40,10 +42,6 @@
       right: 0;
     }
   }
-
-  h1 {
-    line-height: sizeRem(28);
-  }
 }
 
 .main-header {
@@ -51,14 +49,18 @@
   min-height: 150px;
   width: 100%;
 
+  .container {
+    gap: 78px;
+  }
+
   .logo-container {
     position: relative;
     width: fit-content;
+    color: #2b2929;
   }
   .logo {
     font-size: 4.125rem;
     font-weight: bold;
-    letter-spacing: -3px;
     font-family: $font-secondary;
   }
   .header-tag {
@@ -76,7 +78,15 @@
 }
 
 .main-footer {
+  padding-top: 20px;
+  padding-bottom: 14px;
+
   .container {
+    justify-content: center;
+  }
+
+  .copyright-container {
+    display: flex;
     justify-content: flex-end;
   }
   .copyright {

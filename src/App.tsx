@@ -11,19 +11,15 @@ function App() {
       <Header />
       <div className="main-content-container container">
         <aside className="aside">
-          <div className="container">
-            <span className="vertical-line-container">
-              <span className="vertical-line" />
-              <span className="vertical-line" />
-            </span>
-            <section>
-              <h1>
-                Anyone can experience a disability when the design, the
-                environment, the attitude or the social structure exclude them
-                from participating.
-              </h1>
-            </section>
-          </div>
+          <span className="vertical-line-container">
+            <span className="vertical-line" />
+            <span className="vertical-line" />
+          </span>
+          <article>
+            Anyone can experience a disability when the design, the environment,
+            the attitude or the social structure exclude them from
+            participating.
+          </article>
         </aside>
 
         <main className="main-content">
@@ -32,8 +28,10 @@ function App() {
       </div>
 
       <footer className="main-footer">
-        <div className="container">
+        <article className="container">
           <nav className="footer-nav">Contact Great links Thanks</nav>
+        </article>
+        <div className="copyright-container container">
           <span className="copyright">Copyright 2023</span>
         </div>
       </footer>
