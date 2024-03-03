@@ -8,6 +8,7 @@
 .main-content-container {
   flex-grow: 1;
   gap: 30px;
+  width: 100%;
 }
 
 .main-container {
@@ -16,12 +17,21 @@
   flex-direction: column;
 }
 
+.home-page {
+  &.flex-box {
+    gap: 30px;
+  }
+  .aside {
+    line-height: 34px;
+  }
+}
+
 .aside {
   display: flex;
   max-width: sizeRem(420);
   font-size: sizeRem(28);
   margin-bottom: 10px;
-  font-family: neue_haas_grotesk_disp55roman;
+  font-family: $font-secondary;
 
   .vertical-line-container {
     width: sizeRem(136);
@@ -74,7 +84,6 @@
   }
 }
 .main-content {
-  flex-grow: 1;
   line-height: 22px;
 }
 
@@ -93,8 +102,9 @@
   .copyright {
     border-bottom: 1px solid #d96500;
     display: flex;
-    width: 150px;
     justify-content: flex-end;
-    padding-bottom: 8px;
+    width: 120px;
+    padding-bottom: 6px;
+    font-size: 14px;
   }
 }

@@ -23,10 +23,12 @@ $burgerColorActive: $color-primary;
   font-size: 22px;
   display: flex;
   align-items: center;
-  font-family: $font-secondary-light;
 
   .nav-item {
-    color: #557385;
+    a {
+      font-family: $font-secondary-light;
+      color: #557385;
+    }
   }
   .nav-container {
     display: flex;

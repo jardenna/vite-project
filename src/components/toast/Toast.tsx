@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { TypesEnum } from '../../enums';
+import { TypesEnum } from '../../types/enums';
 
 import './toast.scss';
 import Portal from '../Portal';

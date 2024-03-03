@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Title } from '../enums';
+import { Title } from '../types/enums';
 
 function useDocumentTitle(title: Title) {
   const [docTitle, setDocTitle] = useState('');

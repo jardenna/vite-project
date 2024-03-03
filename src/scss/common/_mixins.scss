@@ -81,14 +81,16 @@
 }
 
 @mixin flexbox(
-  $wrap: wrap,
+  $wrap: nowrap,
   $justify-content: flex-start,
-  $flex-direction: column
+  $flex-direction: row,
+  $gap: 20px
 ) {
   display: flex;
   flex-wrap: $wrap;
   justify-content: $justify-content;
   flex-direction: $flex-direction;
+  gap: $gap;
 }
 
 @mixin flex($values: 1, $margin: 30px) {

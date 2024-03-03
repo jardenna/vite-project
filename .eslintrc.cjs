@@ -1,44 +1,38 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
+  root: true,
+  env: { browser: true, es2020: true },
   extends: [
+    'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/strict-type-checked',
+    'plugin:react/recommended',
     'airbnb',
     'airbnb-typescript',
-    'airbnb/hooks',
     'prettier',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
   ],
-  ignorePatterns: ['/*', '!/src'],
+  reportUnusedDisableDirectives: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    tsconfigRootDir: __dirname,
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react-refresh'],
   rules: {
-    'no-console': ['warn', { allow: ['info', 'error'] }],
-    'react/react-in-jsx-scope': 0,
+    'linebreak-style': 0,
+    'react/jsx-tag-spacing': 0,
+    'react/function-component-definition': 'off',
     'react/require-default-props': 'off',
-    'react-hooks/exhaustive-deps': 'off',
-    'jsx-a11y/label-has-associated-control': [
-      2,
-      {
-        labelAttributes: ['label'],
-        controlComponents: ['input'],
-        depth: 1,
-      },
-    ],
-
-    'react/function-component-definition': [
-      2,
-      {
-        namedComponents: ['arrow-function', 'function-declaration'],
-        unnamedComponents: 'arrow-function',
-      },
+    eqeqeq: 'error',
+    'react/react-in-jsx-scope': 'off',
+    'react/no-array-index-key': 'off',
+    'react/jsx-uses-react': 'off',
+    'no-console': ['warn', { allow: ['info', 'error'] }],
+    'react/jsx-one-expression-per-line': 0,
+    curly: ['error', 'all'],
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
     ],
   },
 };

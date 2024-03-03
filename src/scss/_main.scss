@@ -43,6 +43,9 @@ h1 {
   font-size: sizeRem(16);
   margin-bottom: 10px;
 }
+h2 {
+  font-size: sizeRem(16);
+}
 
 img {
   width: 100%;
@@ -73,4 +76,8 @@ form {
 
 svg {
   width: sizeRem(20);
+}
+
+.flex-box {
+  @include flexbox();
 }
