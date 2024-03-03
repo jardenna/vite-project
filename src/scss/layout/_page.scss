@@ -65,11 +65,12 @@
   }
   .header-tag {
     position: absolute;
-    right: sizeRem(34);
-    bottom: sizeRem(-23);
+    right: 48px;
+    top: 54px;
+    color: #414b52;
     font-size: sizeRem(35);
     font-family: calibri;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
   }
 }
 .main-content {

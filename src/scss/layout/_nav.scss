@@ -31,10 +31,12 @@ $burgerColorActive: $color-primary;
   .nav-container {
     display: flex;
   }
+
   .main-nav-seperator {
     display: flex;
-    border: 1px solid #414b52;
-    height: 40px;
+    border-right: 1px solid #414b52;
+    height: 33px;
+    margin: 0 22px;
   }
   // @include mQ($small) {
   //   text-align: left;
@@ -48,7 +50,7 @@ $burgerColorActive: $color-primary;
   // }
 
   .nav-item {
-    margin-right: 10px;
+    margin-right: 20px;
     &:last-child {
       margin: 0;
     }
