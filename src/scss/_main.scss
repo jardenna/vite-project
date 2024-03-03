@@ -19,7 +19,7 @@ body {
 
 body {
   margin: 0;
-  font-size: 16px;
+  font-size: sizeRem(16);
   font-family: $font-primary;
   color: $color-primary;
 }
@@ -32,12 +32,24 @@ body {
   }
 }
 
-h1 {
+h1,
+h2,
+h3 {
   margin: 0;
-  font-size: 36px;
+}
+
+h1 {
+  font-size: sizeRem(30);
   font-weight: 100;
   margin-bottom: 10px;
+  font-family: neue_haas_grotesk_disp55roman;
 }
+
+h2 {
+  font-size: sizeRem(16);
+  font-family: $font-primary-bold;
+}
+
 img {
   width: 100%;
 }
@@ -66,5 +78,5 @@ form {
 }
 
 svg {
-  width: 20px;
+  width: sizeRem(20);
 }
